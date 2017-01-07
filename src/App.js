@@ -5,11 +5,9 @@ import Modal from './Modal';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="container">
 
-        {React.Children.count(this.props.children) > 0 &&
-          <Modal>{this.props.children}</Modal>
-        }
+        <Modal>{this.props.children}</Modal>
 
         <h1>Dagobert Renouf, 27 - Front-end Engineer</h1>
 

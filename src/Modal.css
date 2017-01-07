@@ -1,8 +1,48 @@
-.modal {
+.overlay {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background: #FFF;
+  background: red;
+}
+
+.modal {
+  transform-origin: left center;
+}
+
+.fade-enter {
+  opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+
+.fade-leave {
+  opacity: 1;
+}
+
+.fade-leave.fade-leave-active {
+  opacity: 0.01;
+  transition: opacity 200ms;
+}
+
+.fade-enter .modal {
+  transform: scale3d(0.85,0.85,1);
+}
+
+.fade-enter.fade-enter-active .modal {
+  transform: scale3d(1,1,1);
+  transition: transform 300ms;
+}
+
+.fade-leave .modal {
+  transform: scale3d(1,1,1);
+}
+
+.fade-leave.fade-leave-active .modal {
+  transform: scale3d(0.85,0.85,1);
+  transition: transform 300ms;
 }
