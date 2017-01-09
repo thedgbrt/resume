@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
-import { Euratalent, LaChronique, ReactWebsites, ResponsiveWebsites } from './data/projects';
+import { Dgbrt, FirstWebsite, ModelSociety, Russia } from './data/experiences';
 
-class Project extends Component {
+class Experience extends Component {
   showContent = () => {
-    switch (this.props.params.projectName) {
-      case "euratalent":
-        return <Euratalent/>;
+    switch (this.props.params.experienceName) {
+      case "first-website":
+        return <FirstWebsite/>;
         break;
-      case "lachronique":
-        return <LaChronique/>;
+      case "russia":
+        return <Russia/>;
         break;
-      case "responsive-websites":
-        return <ResponsiveWebsites/>;
+      case "model-society":
+        return <ModelSociety/>;
         break;
-      case "react-websites":
-        return <ReactWebsites/>;
+      case "dgbrt":
+        return <Dgbrt/>;
         break;
       default:
         null;
@@ -37,4 +37,4 @@ class Project extends Component {
   }
 }
 
-export default Project;
+export default Experience;

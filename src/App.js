@@ -16,19 +16,19 @@ class App extends Component {
         <p>Here are some things I made:</p>
 
         <ul>
-          <li><Link to="/project">La Chronique</Link> [React native app]</li>
-          <li><Link to="/project">Euratalent</Link> [responsive web app]</li>
-          <li><Link to="/project">Locomotion, Tandala, Kaleidoscopeye, Chloe bodart</Link> [responsive</li> websites]
-          <li><Link to="/project">Virage Énergie, Shaddok</Link> [React websites]</li>
+          <li><Link to="/projects/lachronique">La Chronique</Link> [React native app]</li>
+          <li><Link to="/projects/responsive-websites">Locomotion, Tandala, Kaleidoscopeye, Chloe bodart</Link> [responsive</li> websites]
+          <li><Link to="/projects/euratalent">Euratalent</Link> [responsive web app]</li>
+          <li><Link to="/projects/react-websites">Virage Énergie, Shaddok</Link> [React websites]</li>
         </ul>
 
         <p>Building websites since I was 15, I have acquired a <strong>broad set of skills</strong> as <strong>founder</strong>, <strong>co-founder</strong> and contractor:</p>
 
         <ul>
-          <li>In 2006, in high school, I <Link to="/project">created my first website that made money</Link></li>
-          <li>In 2008, I dropped out of college and <Link to="/project">moved to Moscow to grow an e-commerce website</Link></li>
-          <li>In 2011 and 2012, I <Link to="/project">led design at ModelSociety</Link></li>
-          <li>Since 2013, I've <Link to="/project">run my own consulting business</Link> that helped companies with <strong>development, strategy and product design</strong></li>
+          <li>In 2006, in high school, I <Link to="/experiences/first-website">created my first website that made money</Link></li>
+          <li>In 2008, I dropped out of college and <Link to="/experiences/russia">moved to Moscow to grow an e-commerce website</Link></li>
+          <li>In 2011 and 2012, I <Link to="/experiences/model-society">led design at ModelSociety</Link></li>
+          <li>Since 2013, I've <Link to="/experiences/dgbrt">run my own consulting business</Link> that helped companies with <strong>development, strategy and product design</strong></li>
         </ul>
 
         <p>These experiences have made me <strong>autonomous</strong>, <strong>self-driven</strong> and capable of <strong>leading ambitious product goals</strong>.</p>
@@ -51,8 +51,8 @@ class App extends Component {
           <li>Flow 7/10</li>
           <li>Jest 8/10</li>
           <li>SEO 9/10</li>
-          <li>product design 7/10</li>
-          <li>ux design 7/10</li>
+          <li>product design 8/10</li>
+          <li>ux design 8/10</li>
           <li>marketing 7/10</li>
         </ul>
 
@@ -71,6 +71,8 @@ class App extends Component {
         </ul>
 
         <p>Contact me: <a href="mailto:dagobert@dgbrt.fr">dagobert@dgbrt.fr</a></p>
+
+        <p>Find me on <a href="https://www.linkedin.com/in/dgbrt">LinkedIn</a>, <a href="https://github.com/thedgbrt">GitHub</a> or <a href="https://twitter.com/thedgbrt">Twitter</a>.</p>
       </div>
     );
   }
