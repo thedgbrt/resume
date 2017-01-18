@@ -3,11 +3,15 @@
 $black: #000000;
 $blue: #229FFF;
 $brown: #CDC3B7;
+$brown-text: #A18D75;
 $white: #FFFFFF;
 
 $light: 300;
 $normal: 500;
 $bold: 700;
+
+$size-l: 2.5rem;
+$size-m: 1.6rem;
 
 html {
   font-size: 62.5%;
@@ -17,14 +21,54 @@ body {
   background: $white;
   border: 7px solid $brown;
   font-family: "Whitney A", "Whitney B";
-  font-size: 1.6rem;
+  font-size: $size-m;
   font-style: normal;
   font-weight: $normal;
+  line-height: 2.1rem;
   padding: 23px;
+}
+
+a {
+  color: $blue;
+
+  &.external {
+    background-image: url('./img/link-external-3x.png');
+    background-position: right 0.4rem;
+    background-repeat: no-repeat;
+    background-size: 8px 8px;
+    padding-right: 11px;
+  }
 }
 
 strong {
   font-weight: $bold;
+}
+
+h2 {
+  font-size: $size-l;
+  font-weight: $light;
+}
+
+h3 {
+  color: $brown-text;
+  font-size: $size-m;
+  margin-bottom: 0;
+}
+
+ul.arrows {
+  list-style: none;
+  padding-left: 0;
+  li {
+    background-image: url('./img/arrow-black-3x.png');
+    background-position: left 0.55rem;
+    background-repeat: no-repeat;
+    background-size: 18px 11px;
+    padding-left: 22px;
+  }
+}
+
+h2 + ul, h3 + ul {
+  margin-top: 0;
 }
 
 .separator-wave {
@@ -39,16 +83,14 @@ strong {
   }
 }
 
-.avatar {
+.avatar, .meditator, .skill-chart {
   display: block;
-  height: 175px;
   margin: 0 auto;
-  width: 174px;
 }
 
 .identity {
   h1 {
-    font-size: 2.5rem;
+    font-size: $size-l;
     font-weight: normal;
     line-height: 2.4rem;
     margin-bottom: 0;
@@ -87,14 +129,41 @@ strong {
 }
 
 .projects {
+  p {
+    margin-bottom: 1.2rem;
+    margin-top: 1.2rem;
+  }
   ul {
     list-style-type: none;
+    margin-bottom: $size-l;
+    margin-top: 1.2rem;
     padding: 0;
     a {
+      background-position: left bottom;
+      background-repeat: no-repeat;
+      display: block;
       text-decoration: none;
-      li {
-        margin-bottom: 0.5rem;
+
+      &.react-native {
+        background-image: url('./img/project-react-native-3x.jpg');
+        background-size: 48px 51px;
+        padding-left: 54px;
       }
+      &.web {
+        background-image: url('./img/project-web-3x.jpg');
+        background-size: 78px 54px;
+        padding-left: 88px;
+      }
+      &.react {
+        background-image: url('./img/project-react-3x.jpg');
+        background-size: 78px 54px;
+        padding-left: 88px;
+      }
+
+      li {
+        margin-bottom: 1.4rem;
+      }
+
       strong {
         border-bottom: 1px solid $blue;
         color: $blue;
@@ -103,7 +172,6 @@ strong {
         font-weight: $light;
         line-height: 3.1rem;
         padding-bottom: 0.2rem;
-        margin-bottom: 0.2rem;
       }
       span {
         color: $black;
@@ -114,4 +182,83 @@ strong {
   }
 
   @extend .separator-wave;
+}
+
+.timeline {
+  ul {
+    border-left: 1px solid $black;
+    list-style-type: none;
+    margin-bottom: 0;
+    padding-bottom: 0.8rem;
+    padding-left: 0;
+
+    li {
+      margin-bottom: 1rem;
+      padding-left: 2rem;
+      position: relative;
+
+      &::before {
+        background: $black;
+        content: "";
+        height: 1px;
+        left: 0;
+        top: 1rem;
+        position: absolute;
+        width: 0.7rem;
+      }
+      span {
+        font-size: $size-l;
+        line-height: 2.1rem;
+        font-weight: $light;
+      }
+    }
+  }
+
+  a {
+    color: $brown-text;
+    font-weight: $bold;
+  }
+
+  & + p {
+    background-image: url('./img/timeline-arrow-3x.png');
+    background-repeat: no-repeat;
+    background-size: 33px 20px;
+    margin-top: 0;
+    margin-bottom: $size-l;
+    padding-left: 43px;
+    padding-top: 0.3rem;
+  }
+}
+
+.abstract {
+  @extend .separator-wave;
+}
+
+.skills {
+  h3 {
+    margin-top: $size-l;
+  }
+  .skill-chart{
+    margin-bottom: 4rem;
+  }
+}
+
+.contact {
+  &::before {
+    background-image: url('./img/contact-3x.gif');
+    background-repeat: no-repeat;
+    background-size: 81px 50px;
+    content: "";
+    display: block;
+    height: 50px;
+    margin: 0 auto;
+    width: 81px;
+  }
+
+  text-align: center;
+
+  p {
+    margin-bottom: 0;
+    margin-top: 0.7rem;
+  }
 }
