@@ -16,17 +16,23 @@ export default class Index extends React.Component {
           ]}
         />
 
-        <h1>Dagobert Renouf, 27 - Front-end Engineer</h1>
+        <header className="identity">
+          <img className="avatar" src="img/avatar.jpg"/>
+          <h1>
+            Dagobert Renouf, 27<br/>
+            <strong>Front-end Engineer</strong>
+          </h1>
+          <p>I make <strong>responsive websites and apps</strong>. I'm fluent in <strong>React + Redux</strong>.</p>
+        </header>
 
-        <p>I make <strong>responsive websites and apps</strong>. I'm fluent in <strong>React + Redux</strong>.</p>
-
-        <p>Here are some things I made:</p>
-
-        <ul>
-          <li><Link to={prefixLink('/projects/lachronique/')}>La Chronique</Link> [React native app]</li>
-          <li><Link to={prefixLink('/projects/euratalent/')}>Euratalent</Link> [responsive websites]</li>
-          <li><Link to={prefixLink('/projects/websites/')}>Websites</Link> [react / wordpress / responsive websites]</li>
-        </ul>
+        <nav className="projects">
+          <p>Here are some things I made:</p>
+          <ul>
+            <Link to={prefixLink('/projects/lachronique/')}><li><strong>La Chronique </strong><span>React native app</span></li></Link>
+            <Link to={prefixLink('/projects/euratalent/')}><li><strong>Euratalent </strong><span>Responsive web app</span></li></Link>
+            <Link to={prefixLink('/projects/websites/')}><li><strong>Websites </strong><span>React / WordPress / Responsive</span></li></Link>
+          </ul>
+        </nav>
 
         <p>Building websites since I was 15, I have acquired a <strong>broad set of skills</strong> as <strong>founder</strong>, <strong>co-founder</strong> and contractor:</p>
 
