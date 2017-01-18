@@ -2,8 +2,6 @@ import React from 'react'
 import Helmet from 'react-helmet'
 
 import { prefixLink } from 'gatsby-helpers'
-import { TypographyStyle, GoogleFont } from 'react-typography'
-import typography from './utils/typography'
 
 const BUILD_TIME = new Date().getTime()
 
@@ -32,9 +30,8 @@ module.exports = React.createClass({
           />
           {head.title.toComponent()}
           {head.meta.toComponent()}
-          <TypographyStyle typography={typography} />
-          <GoogleFont typography={typography} />
           {css}
+          <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7843932/6227572/css/fonts.css" />
         </head>
         <body>
           <div id="react-mount" dangerouslySetInnerHTML={{ __html: this.props.body }} />

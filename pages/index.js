@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import { prefixLink } from 'gatsby-helpers'
+import './styles.scss'
 import Helmet from 'react-helmet'
 import { config } from 'config'
 
@@ -24,7 +25,7 @@ export default class Index extends React.Component {
         <ul>
           <li><Link to={prefixLink('/projects/lachronique/')}>La Chronique</Link> [React native app]</li>
           <li><Link to={prefixLink('/projects/euratalent/')}>Euratalent</Link> [responsive websites]</li>
-          <li><Link to={prefixLink('/projects/websites/')}>Websites</Link> [react and responsive websites]</li>
+          <li><Link to={prefixLink('/projects/websites/')}>Websites</Link> [react / wordpress / responsive websites]</li>
         </ul>
 
         <p>Building websites since I was 15, I have acquired a <strong>broad set of skills</strong> as <strong>founder</strong>, <strong>co-founder</strong> and contractor:</p>
