@@ -18,7 +18,7 @@ export default class Project extends Component {
 
   render () {
     return (
-      <div className="container">
+      <div className="page page-project">
         <Helmet
           seo_title={this.props.seoTitle}
           meta={[
@@ -26,31 +26,32 @@ export default class Project extends Component {
           ]}
         />
 
-        <button onClick={() => browserHistory.goBack()}>Back</button>
+        <button className="close" onClick={() => browserHistory.goBack()}>Back</button>
 
-        <h1>{this.props.title}</h1>
-        <p>{this.props.subTitle}</p>
+        <header className="project-title">
+          <h1>{this.props.title}</h1>
+          <p className="subtitle">{this.props.subTitle}</p>
+          <ul className="links">
+            {this.props.links.map((link, i) => (
+              <li key={i}><a className="external" href={link[1]}>{link[0]}</a></li>
+            ))}
+          </ul>
+        </header>
 
-        <ul>
-          {this.props.links.map((link) => (
-            <li><a href={link[1]}>{link[0]}</a></li>
-          ))}
-        </ul>
-
-        {this.props.content.map((c) => (
-          <section>
+        {this.props.content.map((c, i) => (
+          <section key={i}>
             <h3>{c.title}</h3>
-            <ul>
-              {c.list.map((item) => (
-                <li>{item}</li>
+            <ul className="arrows arrows-white">
+              {c.list.map((item, j) => (
+                <li key={j}>{item}</li>
               ))}
             </ul>
           </section>
         ))}
 
         <section>
-          {this.props.images.map((img) => (
-            <figure>
+          {this.props.images.map((img, i) => (
+            <figure key={i}>
               <img src={"/projects/img/" + img[0]} />
               <figcaption>{img[1]}</figcaption>
             </figure>
