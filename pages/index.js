@@ -63,23 +63,27 @@ export default class Index extends React.Component {
         </section>
 
         <section className="skills">
-          <h2>Skills</h2>
-          <img className="skill-chart" src="img/skill-chart-3x.gif" height="234px" width="266px"/>
+          <div className="col-1">
+            <h2>Skills</h2>
+            <img className="skill-chart" src="img/skill-chart-3x.gif" height="234px" width="266px"/>
+          </div>
 
-          <h3>Things I've gotten into recently</h3>
-          <ul className="arrows">
-            <li>Functional programming (<a href="https://en.coursera.org/learn/programming-languages">course</a> & <a href="https://www.coursera.org/account/accomplishments/certificate/DEP4JW4KMZTC">certification</a>)</li>
-            <li>Elm (<a href="https://pragmaticstudio.com/elm">pragmatic course</a>)</li>
-            <li>Flow and Jest</li>
-          </ul>
+          <div className="col-2">
+            <h3>Things I've gotten into recently</h3>
+            <ul className="arrows">
+              <li>Functional programming (<a href="https://en.coursera.org/learn/programming-languages">course</a> & <a href="https://www.coursera.org/account/accomplishments/certificate/DEP4JW4KMZTC">certification</a>)</li>
+              <li>Elm (<a href="https://pragmaticstudio.com/elm">pragmatic course</a>)</li>
+              <li>Flow and Jest</li>
+            </ul>
 
-          <h3>Other interests</h3>
-          <ul className="arrows">
-            <li>integral theory</li>
-            <li>meditation</li>
-            <li>holacracy and new forms of organizations</li>
-            <li>travel</li>
-          </ul>
+            <h3>Other interests</h3>
+            <ul className="arrows">
+              <li>integral theory</li>
+              <li>meditation</li>
+              <li>holacracy and new forms of organizations</li>
+              <li>travel</li>
+            </ul>
+          </div>
         </section>
 
         <footer className="contact">

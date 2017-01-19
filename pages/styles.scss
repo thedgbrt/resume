@@ -19,13 +19,30 @@ html {
 
 body {
   background: $white;
-  border: 7px solid $brown;
+  border-left: 7px solid $brown;
+  border-right: 7px solid $brown;
   font-family: "Whitney A", "Whitney B";
   font-size: $size-m;
   font-style: normal;
   font-weight: $normal;
   line-height: 2.1rem;
-  padding: 23px;
+  padding: 30px 23px;
+
+  &:before, &:after {
+    content: "";
+    position: fixed;
+    background: $brown;
+    left: 0;
+    right: 0;
+    height: 7px;
+    z-index: 1;
+  }
+  &:before {
+      top: 0;
+  }
+  &:after {
+      bottom: 0;
+  }
 }
 
 a {
@@ -80,6 +97,7 @@ h2 + ul, h3 + ul {
     display: block;
     height: 10px;
     margin: 2rem auto;
+    max-width: 45rem;
     width: 100%;
   }
 }
@@ -87,6 +105,12 @@ h2 + ul, h3 + ul {
 .avatar, .meditator, .skill-chart {
   display: block;
   margin: 0 auto;
+}
+
+.timeline, .abstract, .skills {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 45rem;
 }
 
 .identity {
@@ -124,45 +148,91 @@ h2 + ul, h3 + ul {
     line-height: 2.8rem;
     margin-bottom: 0;
     margin-top: 1.3rem;
+
+    @media (min-width:420px) {
+      max-width: 380px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+    @media (min-width:720px) {
+      max-width: none;
+    }
   }
 
   @extend .separator-wave;
 }
 
 .projects {
+  @media (min-width:420px) {
+    text-align: center;
+  }
+
   p {
     margin-bottom: 1.2rem;
     margin-top: 1.2rem;
   }
+
   ul {
     list-style-type: none;
     margin-bottom: $size-l;
     margin-top: 1.2rem;
     padding: 0;
+    text-align: left;
+
+    @media (min-width:420px) {
+      display: inline-block;
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+
+    @media (min-width:720px) {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
     a {
       background-position: left bottom;
       background-repeat: no-repeat;
       display: block;
+      margin-bottom: 1.4rem;
       text-decoration: none;
+
+      @media (min-width:720px) {
+        display: inline-block;
+        margin-bottom: 2rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        text-align: left;
+        &:last-child{
+          margin-bottom: 1.2rem;
+        }
+      }
+
+      @media (min-width:950px) {
+        margin-bottom: 1.2rem;
+        margin-left: 2.5rem;
+        margin-right: 2.5rem;
+      }
 
       &.react-native {
         background-image: url('./img/project-react-native-3x.jpg');
         background-size: 48px 51px;
         padding-left: 54px;
       }
+
       &.web {
         background-image: url('./img/project-web-3x.jpg');
         background-size: 78px 54px;
         padding-left: 88px;
       }
+
       &.react {
         background-image: url('./img/project-react-3x.jpg');
         background-size: 78px 54px;
         padding-left: 88px;
-      }
-
-      li {
-        margin-bottom: 1.4rem;
       }
 
       strong {
@@ -174,6 +244,7 @@ h2 + ul, h3 + ul {
         line-height: 3.1rem;
         padding-bottom: 0.2rem;
       }
+
       span {
         color: $black;
         display: block;
@@ -239,8 +310,35 @@ h2 + ul, h3 + ul {
   h3 {
     margin-top: $size-l;
   }
-  .skill-chart{
+
+  .skill-chart {
     margin-bottom: 4rem;
+  }
+
+  @media (min-width:720px) {
+    margin-bottom: 4rem;
+    max-width: 55rem;
+
+    .skill-chart {
+      margin-bottom: 0;
+    }
+
+    .col-1 {
+      float: left;
+      width: 54%;
+
+      & > h2:first-child {
+        margin-top: 0;
+      }
+    }
+    .col-2 {
+      margin-left: 64%;
+      width: 36%;
+
+      & > h3:first-child {
+        margin-top: 0;
+      }
+    }
   }
 }
 
