@@ -71,6 +71,7 @@ h2 + ul, h3 + ul {
   margin-top: 0;
 }
 
+/* homepage */
 .separator-wave {
   &::after {
     background: url('./img/separator-wave-3x.jpg');
@@ -262,3 +263,5 @@ h2 + ul, h3 + ul {
     margin-top: 0.7rem;
   }
 }
+
+/* project page */
