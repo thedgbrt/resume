@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import { browserHistory } from 'react-router'
 import Helmet from 'react-helmet'
+import { ViewPager, Frame, Track, View } from 'react-view-pager'
 
 type Props = {
   content: [{title: string, list: [string]}],
@@ -28,35 +29,49 @@ export default class Project extends Component {
 
         <button className="close" onClick={() => browserHistory.goBack()}>Back</button>
 
-        <header className="project-title">
-          <h1>{this.props.title}</h1>
-          <p className="subtitle">{this.props.subTitle}</p>
-          <ul className="links">
-            {this.props.links.map((link, i) => (
-              <li key={i}><a className="external" href={link[1]}>{link[0]}</a></li>
-            ))}
-          </ul>
-        </header>
-
-        {this.props.content.map((c, i) => (
-          <section key={i}>
-            <h3>{c.title}</h3>
-            <ul className="arrows arrows-white">
-              {c.list.map((item, j) => (
-                <li key={j}>{item}</li>
+        <div className="container">
+          <header className="project-title">
+            <h1>{this.props.title}</h1>
+            <p className="subtitle">{this.props.subTitle}</p>
+            <ul className="links">
+              {this.props.links.map((link, i) => (
+                <li key={i}><a className="external" href={link[1]}>{link[0]}</a></li>
               ))}
             </ul>
-          </section>
-        ))}
+          </header>
 
-        <section>
-          {this.props.images.map((img, i) => (
-            <figure key={i}>
-              <img src={"/projects/img/" + img[0]} />
-              <figcaption>{img[1]}</figcaption>
-            </figure>
+          {this.props.content.map((c, i) => (
+            <section key={i}>
+              <h3>{c.title}</h3>
+              <ul className="arrows arrows-white">
+                {c.list.map((item, j) => (
+                  <li key={j}>{item}</li>
+                ))}
+              </ul>
+            </section>
           ))}
-        </section>
+        </div>
+
+        <ViewPager tag="section">
+          <Frame className="slideshow">
+            <Track
+              align={0.5}
+              infinite
+              viewsToShow={"auto"}
+            >
+              {this.props.images.map((img, i) => (
+                <View>
+                  <figure key={i}>
+                    <div className="frame">
+                      <img src={"/projects/img/" + img[0]} />
+                    </div>
+                    <figcaption><p>{img[1]}</p></figcaption>
+                  </figure>
+                </View>
+              ))}
+            </Track>
+          </Frame>
+        </ViewPager>
       </div>
     );
   }

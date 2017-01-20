@@ -1,4 +1,5 @@
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */button,hr,input{overflow:visible}audio,canvas,progress,video{display:inline-block}progress,sub,sup{vertical-align:baseline}[type=checkbox],[type=radio],legend{box-sizing:border-box;padding:0}html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figure{margin:1em 40px}hr{box-sizing:content-box;height:0}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:ButtonText dotted 1px}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{color:inherit;display:table;max-width:100%;white-space:normal}textarea{overflow:auto}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}[hidden],template{display:none}
+/* slick-carousel */ .slick-list,.slick-slider,.slick-track{position:relative;display:block}.slick-loading .slick-slide,.slick-loading .slick-track{visibility:hidden}.slick-slider{box-sizing:border-box;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-touch-callout:none;-khtml-user-select:none;-ms-touch-action:pan-y;touch-action:pan-y;-webkit-tap-highlight-color:transparent}.slick-list{overflow:hidden;margin:0;padding:0}.slick-list:focus{outline:0}.slick-list.dragging{cursor:pointer;cursor:hand}.slick-slider .slick-list,.slick-slider .slick-track{-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0);-o-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}.slick-track{top:0;left:0}.slick-track:after,.slick-track:before{display:table;content:''}.slick-track:after{clear:both}.slick-slide{display:none;float:left;height:100%;min-height:1px}[dir=rtl] .slick-slide{float:right}.slick-slide img{display:block}.slick-slide.slick-loading img{display:none}.slick-slide.dragging img{pointer-events:none}.slick-initialized .slick-slide{display:block}.slick-vertical .slick-slide{display:block;height:auto;border:1px solid transparent}.slick-arrow.slick-hidden{display:none}
 
 $black: #000000;
 $blue: #229FFF;
@@ -15,39 +16,29 @@ $size-l: 2.5rem;
 $size-m: 1.6rem;
 $size-s: 1rem;
 
+$container-padding: 3rem;
+
 html {
   font-size: 62.5%;
 }
 
 body {
   background: $white;
-  border-left: 7px solid $brown;
-  border-right: 7px solid $brown;
   font-family: "Whitney A", "Whitney B";
   font-size: $size-m;
   font-style: normal;
   font-weight: $normal;
   line-height: 2.1rem;
-
-  &:before, &:after {
-    content: "";
-    position: fixed;
-    background: $brown;
-    left: 0;
-    right: 0;
-    height: 7px;
-    z-index: 1;
-  }
-  &:before {
-      top: 0;
-  }
-  &:after {
-      bottom: 0;
-  }
 }
 
 .page {
-  padding: 30px 23px;
+  padding-bottom: $container-padding;
+  padding-top: $container-padding;
+}
+
+.container {
+  padding-left: $container-padding;
+  padding-right: $container-padding;
 }
 
 a {
@@ -77,10 +68,19 @@ h3 {
   margin-bottom: 0;
 }
 
-.title {
+.title-size-1 {
   font-size: 3.7rem;
-  font-weight: $light;
   line-height: 3.1rem;
+}
+
+.title-size-2 {
+  font-size: 2rem;
+  line-height: 2.4rem;
+}
+
+.title {
+  @extend .title-size-1;
+  font-weight: $light;
   padding-bottom: 0.2rem;
 }
 
@@ -126,9 +126,33 @@ button.close {
   text-indent: -9999px;
   top: 2rem;
   width: 23px;
+  z-index: 1;
 }
 
 /* homepage */
+.page-home {
+  border-left: 7px solid $brown;
+  border-right: 7px solid $brown;
+  padding-left: 2.3rem;
+  padding-right: 2.3rem;
+
+  &:before, &:after {
+    content: "";
+    position: fixed;
+    background: $brown;
+    left: 0;
+    right: 0;
+    height: 7px;
+    z-index: 1;
+  }
+  &:before {
+      top: 0;
+  }
+  &:after {
+      bottom: 0;
+  }
+}
+
 .separator-wave {
   &::after {
     background: url('./img/separator-wave-3x.jpg');
@@ -163,9 +187,8 @@ button.close {
     text-align: center;
 
     strong {
-      font-size: 2rem;
+      @extend .title-size-2;
       letter-spacing: 0.06rem;
-      line-height: 2.4rem;
       text-transform: uppercase;
     }
 
@@ -407,6 +430,10 @@ button.close {
     text-transform: uppercase;
   }
 
+  ul {
+    margin-bottom: 3.1rem;
+  }
+
   a {
     color: $blue-dark;
 
@@ -420,6 +447,7 @@ button.close {
   h1 {
     @extend .title;
     font-size: 4.1rem;
+    line-height: 4.1rem;
     margin-bottom: 0.5rem;
     margin-top: 0;
   }
@@ -431,5 +459,58 @@ button.close {
 
   .links {
     margin-top: $size-s;
+  }
+}
+
+
+.slideshow {
+  outline: 0;
+
+  figure {
+    margin: 0;
+    width: 18rem;
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+
+    .frame {
+      box-sizing: border-box;
+      display: block;
+      position: relative;
+      padding-bottom: 33.7%;
+      padding-left: 6%;
+      padding-right: 7%;
+      padding-top: 20.5%;
+
+      img {
+        border: 0.5px solid #FFFFFF;
+        border-radius: 1.5% / 1%;
+        display: block;
+        height: auto;
+        width: 100%;
+      }
+
+      &:after {
+        background-image: url("./img/frame-iphone-borderless.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+      }
+    }
+
+    figcaption {
+      p {
+        @extend .title-size-2;
+        font-weight: $light;
+        margin-bottom: 0;
+        margin-top: 1.8rem;
+        text-align: center;
+      }
+    }
   }
 }

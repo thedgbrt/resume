@@ -44,7 +44,7 @@ export default class LaChronique extends React.Component {
           ["lachronique-webview.png", "Webview"],
           ["lachronique-android.png", "Android version"],
           ["lachronique-admin.png", "Posts admin"],
-          ["lachronique-webview.png", "Posts Schedule"]
+          ["lachronique-admin2.png", "Posts Schedule"]
         ]}
         links={[["Play Store", "https://play.google.com/store/apps/details?id=com.lachronique"],["App Store", "https://appsto.re/fr/Gf5Zab.i"]]}
         seoTitle="La Chronique - React Native App"
