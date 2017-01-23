@@ -53,16 +53,18 @@ export default class Project extends Component {
             </ul>
           </header>
 
-          {this.props.content.map((c, i) => (
-            <section key={i}>
-              <h3>{c.title}</h3>
-              <ul className="arrows arrows-white">
-                {c.list.map((item, j) => (
-                  <li key={j}>{item}</li>
-                ))}
-              </ul>
-            </section>
-          ))}
+          <article className="project-details">
+            {this.props.content.map((c, i) => (
+              <section key={i} className="column">
+                <h3>{c.title}</h3>
+                <ul className="arrows arrows-white">
+                  {c.list.map((item, j) => (
+                    <li key={j}>{item}</li>
+                  ))}
+                </ul>
+              </section>
+            ))}
+          </article>
         </div>
 
         <ViewPager tag="section">

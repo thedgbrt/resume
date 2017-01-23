@@ -17,6 +17,7 @@ $size-m: 1.6rem;
 $size-s: 1rem;
 
 $container-padding: 3rem;
+$container-max-width: 86rem;
 
 html {
   font-size: 62.5%;
@@ -39,6 +40,9 @@ body {
 .container {
   padding-left: $container-padding;
   padding-right: $container-padding;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: $container-max-width;
 }
 
 a {
@@ -430,10 +434,6 @@ button.close {
     text-transform: uppercase;
   }
 
-  ul {
-    margin-bottom: 3.1rem;
-  }
-
   a {
     color: $blue-dark;
 
@@ -441,32 +441,59 @@ button.close {
       background-image: url('./img/link-external-dark-3x.png');
     }
   }
+
+  .project-title {
+    h1 {
+      @extend .title;
+      font-size: 4.1rem;
+      line-height: 4.1rem;
+      margin-bottom: 0.5rem;
+      margin-top: 0;
+    }
+
+    .subtitle {
+      margin-top: 0;
+      margin-bottom: $size-s;
+
+      @media (min-width:720px) {
+        max-width: 60%;
+      }
+    }
+
+    .links {
+      margin-bottom: 0;
+      margin-top: $size-s;
+    }
+  }
+
+  .project-details {
+    ul {
+      margin-bottom: 3.1rem;
+    }
+  }
+
+  @media (min-width:720px) {
+    .project-details {
+      .column {
+        float: left;
+        width: 29%;
+
+        & + .column {
+          padding-left: 5.5%;
+        }
+      }
+
+      &:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    }
+  }
 }
-
-.project-title {
-  h1 {
-    @extend .title;
-    font-size: 4.1rem;
-    line-height: 4.1rem;
-    margin-bottom: 0.5rem;
-    margin-top: 0;
-  }
-
-  .subtitle {
-    margin-top: 0;
-    margin-bottom: $size-s;
-  }
-
-  .links {
-    margin-top: $size-s;
-  }
-}
-
 
 // Slideshow
-@mixin slideshow-frame-img($width, $padding, $border-radius, $bg-image) {
-  width: $width;
-
+@mixin slideshow-frame-img($padding, $border-radius, $bg-image) {
   .frame {
     padding: $padding;
 
@@ -480,6 +507,43 @@ button.close {
   }
 }
 
+@mixin slideshow-frame-width($w1, $w2, $w3, $w4) {
+  $s-ratio: 1.6;
+  $m-ratio: 1.4;
+  $l-ratio: 1;
+  $xl-ratio: 0.87;
+
+  &.iphone { width: #{$w1 / $s-ratio}rem; }
+  &.pc { width: #{$w2 / $s-ratio}rem; }
+  &.ipad { width: #{$w3 / $s-ratio}rem; }
+  &.ipad-v { width: #{$w4 / $s-ratio}rem; }
+
+  @media (min-width: 420px) {
+    &.iphone { width: #{$w1 / $m-ratio}rem; }
+    &.pc { width: #{$w2 / $m-ratio}rem; }
+    &.ipad { width: #{$w3 / $m-ratio}rem; }
+    &.ipad-v { width: #{$w4 / $m-ratio}rem; }
+  }
+
+  @media (min-width: 550px) {
+    &.iphone { width: #{$w1 / $l-ratio}rem; }
+    &.pc { width: #{$w2 / $l-ratio}rem; }
+    &.ipad { width: #{$w3 / $l-ratio}rem; }
+    &.ipad-v { width: #{$w4 / $l-ratio}rem; }
+  }
+
+  @media (min-width: 950px) {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+
+    &.iphone { width: #{$w1 / $xl-ratio}rem; }
+    &.pc { width: #{$w2 / $xl-ratio}rem; }
+    &.ipad { width: #{$w3 / $xl-ratio}rem; }
+    &.ipad-v { width: #{$w4 / $xl-ratio}rem; }
+  }
+
+}
+
 .slideshow {
   outline: 0;
 
@@ -487,6 +551,15 @@ button.close {
     margin: 0;
     padding-left: 0.9rem;
     padding-right: 0.9rem;
+    width: 25rem;
+
+    @include slideshow-frame-width(18.3, 49.3, 52.7, 27.7);
+    // width: 75vw;
+    //
+    // @media (min-width: 380px) {
+    //   width: 32rem;
+    //   width: 80vw;
+    // }
 
     .frame {
       box-sizing: border-box;
@@ -515,21 +588,10 @@ button.close {
       }
     }
 
-    &.iphone {
-      @include slideshow-frame-img(18.3rem, 20.5% 7% 33.7% 6%, #{1.5%}/#{1%}, "./img/frame-iphone-borderless.svg");
-    }
-
-    &.pc {
-      @include slideshow-frame-img(49.3rem, 4.4% 4.7% 16.2% 4.5%, #{0.8%}/#{1%}, "./img/frame-pc-borderless.svg");
-    }
-
-    &.ipad {
-      @include slideshow-frame-img(52.7rem, 7% 7.9% 7.2% 15.2%, #{0.8%}/#{1%}, "./img/frame-ipad-borderless.svg");
-    }
-
-    &.ipad-v {
-      @include slideshow-frame-img(27.7rem, 10.1% 10.3% 20.9% 10.3%, #{0.8%}/#{1%}, "./img/frame-ipad-v-borderless.svg");
-    }
+    &.iphone { @include slideshow-frame-img(20.5% 7% 33.7% 6%, #{1.5%}/#{1%}, "./img/frame-iphone-borderless.svg"); }
+    &.pc { @include slideshow-frame-img(4.4% 4.7% 16.2% 4.5%, #{0.8%}/#{1%}, "./img/frame-pc-borderless.svg"); }
+    &.ipad { @include slideshow-frame-img(7% 7.9% 7.2% 15.2%, #{0.8%}/#{1%}, "./img/frame-ipad-borderless.svg"); }
+    &.ipad-v { @include slideshow-frame-img(10.1% 10.3% 20.9% 10.3%, #{0.8%}/#{1%}, "./img/frame-ipad-v-borderless.svg"); }
 
     figcaption {
       p {

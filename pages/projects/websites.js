@@ -49,7 +49,7 @@ export default class Websites extends React.Component {
         ]}
         seoTitle="Wordpress and React websites"
         seoDescription="Front-end development with WordPress and React"
-        subTitle="As a contractor, on my own or for design agency ClDesign, I created high-end responsive websites for clients in Architecture, Travel and Design."
+        subTitle="As a contractor, on my own or for design agency CLDesign, I created high-end responsive websites for clients in Architecture, Travel and Design."
         title="Wordpress and React websites"
       />);
   }
