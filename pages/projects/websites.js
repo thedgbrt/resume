@@ -28,16 +28,16 @@ export default class Websites extends React.Component {
           }
         ]}
         images={[
-          ["locomotion.png", "Custom JS grid opener"],
-          ["shaddok.png", "Mobile-first navigation"],
-          ["tandala.png", "Single Page Experience"],
-          ["tandala-2.png", "Custom Mobile version"],
-          ["virage.png", "Seo friendly modal windows"],
-          ["virage-2.png", "iPad size adapatations"],
-          ["construire.png", "Extra care for iPad version"],
-          ["kaleido.png", "Complex grid responsiveness"],
-          ["kaleidoscopeye-admin.png", "Clean editor admin"],
-          ["kaleidoscopeye-admin2.png", "Custom post fields"]
+          {file:"locomotion.png",title:"Custom JS grid opener",screen:2},
+          {file:"shaddok.png",title:"Mobile-first navigation",screen:1},
+          {file:"tandala.png",title:"Single Page Experience",screen:2},
+          {file:"tandala-2.png",title:"Custom Mobile version",screen:1},
+          {file:"virage.png",title:"Seo friendly modal windows",screen:3},
+          {file:"virage-2.png",title:"iPad size adapatations",screen:4},
+          {file:"construire.png",title:"Extra care for iPad version",screen:4},
+          {file:"kaleido.png",title:"Complex grid responsiveness",screen:2},
+          {file:"kaleidoscopeye-admin.png",title:"Clean editor admin",screen:2},
+          {file:"kaleidoscopeye-admin2.png",title:"Custom post fields",screen:2}
         ]}
         links={[
           ["Chloé Bodart","http://www.chloe-bodart.fr"],

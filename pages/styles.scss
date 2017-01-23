@@ -463,12 +463,28 @@ button.close {
 }
 
 
+// Slideshow
+@mixin slideshow-frame-img($width, $padding, $border-radius, $bg-image) {
+  width: $width;
+
+  .frame {
+    padding: $padding;
+
+    img {
+      border-radius: $border-radius;
+    }
+
+    &:after {
+      background-image: url($bg-image);
+    }
+  }
+}
+
 .slideshow {
   outline: 0;
 
   figure {
     margin: 0;
-    width: 18rem;
     padding-left: 0.9rem;
     padding-right: 0.9rem;
 
@@ -476,21 +492,17 @@ button.close {
       box-sizing: border-box;
       display: block;
       position: relative;
-      padding-bottom: 33.7%;
-      padding-left: 6%;
-      padding-right: 7%;
-      padding-top: 20.5%;
 
       img {
-        border: 0.5px solid #FFFFFF;
-        border-radius: 1.5% / 1%;
+        border-color: #FFFFFF;
+        border-style: solid;
+        border-width: 1px;
         display: block;
         height: auto;
         width: 100%;
       }
 
       &:after {
-        background-image: url("./img/frame-iphone-borderless.svg");
         background-repeat: no-repeat;
         background-size: contain;
         content: "";
@@ -501,6 +513,22 @@ button.close {
         right: 0;
         top: 0;
       }
+    }
+
+    &.iphone {
+      @include slideshow-frame-img(18.3rem, 20.5% 7% 33.7% 6%, #{1.5%}/#{1%}, "./img/frame-iphone-borderless.svg");
+    }
+
+    &.pc {
+      @include slideshow-frame-img(49.3rem, 4.4% 4.7% 16.2% 4.5%, #{0.8%}/#{1%}, "./img/frame-pc-borderless.svg");
+    }
+
+    &.ipad {
+      @include slideshow-frame-img(52.7rem, 7% 7.9% 7.2% 15.2%, #{0.8%}/#{1%}, "./img/frame-ipad-borderless.svg");
+    }
+
+    &.ipad-v {
+      @include slideshow-frame-img(27.7rem, 10.1% 10.3% 20.9% 10.3%, #{0.8%}/#{1%}, "./img/frame-ipad-v-borderless.svg");
     }
 
     figcaption {

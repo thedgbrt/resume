@@ -6,7 +6,7 @@ import { ViewPager, Frame, Track, View } from 'react-view-pager'
 
 type Props = {
   content: [{title: string, list: [string]}],
-  images: [[string, string]],
+  images: [{file: string, title: string, screen: number}],
   links: [[string, string]],
   seoDescription: string,
   seoTitle: string,
@@ -16,6 +16,19 @@ type Props = {
 
 export default class Project extends Component {
   props: Props;
+
+  getScreenClassName = (id: number) => {
+    switch (id) {
+      case 1:
+        return 'iphone';
+      case 2:
+        return 'pc';
+      case 3:
+        return 'ipad';
+      default:
+        return 'ipad-v';
+    }
+  };
 
   render () {
     return (
@@ -60,12 +73,12 @@ export default class Project extends Component {
               viewsToShow={"auto"}
             >
               {this.props.images.map((img, i) => (
-                <View>
-                  <figure key={i}>
+                <View key={i}>
+                  <figure className={this.getScreenClassName(img.screen)}>
                     <div className="frame">
-                      <img src={"/projects/img/" + img[0]} />
+                      <img src={"/projects/img/" + img.file} />
                     </div>
-                    <figcaption><p>{img[1]}</p></figcaption>
+                    <figcaption><p>{img.title}</p></figcaption>
                   </figure>
                 </View>
               ))}
