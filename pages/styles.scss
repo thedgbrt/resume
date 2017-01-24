@@ -548,12 +548,6 @@ button.close {
     width: 25rem;
 
     @include slideshow-frame-width(183, 493, 527, 277);
-    // width: 75vw;
-    //
-    // @media (min-width: 380px) {
-    //   width: 32rem;
-    //   width: 80vw;
-    // }
 
     .frame {
       box-sizing: border-box;

@@ -37,11 +37,11 @@ export default class Euratalent extends React.Component {
           }
         ]}
         images={[
-          {file:"euratalent.png",title:"Homepage",screen:2},
-          {file:"euratalent-2.png",title:"MapBox Integration",screen:3},
-          {file:"euratalent-3.png",title:"Mobile adaptations",screen:1},
-          {file:"euratalent-4.png",title:"Form",screen:3},
-          {file:"euratalent-5.png",title:"Form reflow on mobile",screen:1}
+          {file:"euratalent",title:"Homepage",screen:2},
+          {file:"euratalent-2",title:"MapBox Integration",screen:3},
+          {file:"euratalent-3",title:"Mobile adaptations",screen:1},
+          {file:"euratalent-4",title:"Form",screen:3},
+          {file:"euratalent-5",title:"Form reflow on mobile",screen:1}
         ]}
         links={[["Euratalent", "http://app.euratalent.com"]]}
         seoTitle="Euratalent - Responsive Web App"

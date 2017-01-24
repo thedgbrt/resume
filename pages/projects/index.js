@@ -78,7 +78,11 @@ export default class Project extends Component {
                 <View key={i}>
                   <figure className={this.getScreenClassName(img.screen)}>
                     <div className="frame">
-                      <img src={"/projects/img/" + img.file} />
+                      <img
+                        src={"/projects/img/" + img.file + ".jpg"}
+                        srcSet={
+                          "/projects/img/" + img.file + "@2x.jpg 2x," +
+                          "/projects/img/" + img.file + "@3x.jpg 3x"} />
                     </div>
                     <figcaption><p>{img.title}</p></figcaption>
                   </figure>

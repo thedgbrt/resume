@@ -37,14 +37,14 @@ export default class LaChronique extends React.Component {
           }
         ]}
         images={[
-          {file:"lachronique-launch.png",title:"Launch Screen",screen:1},
-          {file:"lachronique-day.png",title:"Day View",screen:1},
-          {file:"lachronique-favorites.png",title:"Local favorites",screen:1},
-          {file:"lachronique-form.png",title:"Contest form",screen:1},
-          {file:"lachronique-webview.png",title:"Webview",screen:1},
-          {file:"lachronique-android.png",title:"Android version",screen:1},
-          {file:"lachronique-admin.png",title:"Posts admin",screen:2},
-          {file:"lachronique-admin2.png",title:"Posts Schedule",screen:2}
+          {file:"lachronique-launch",title:"Launch Screen",screen:1},
+          {file:"lachronique-day",title:"Day View",screen:1},
+          {file:"lachronique-favorites",title:"Local favorites",screen:1},
+          {file:"lachronique-form",title:"Contest form",screen:1},
+          {file:"lachronique-webview",title:"Webview",screen:1},
+          {file:"lachronique-android",title:"Android version",screen:1},
+          {file:"lachronique-admin",title:"Posts admin",screen:2},
+          {file:"lachronique-admin2",title:"Posts Schedule",screen:2}
         ]}
         links={[["Play Store", "https://play.google.com/store/apps/details?id=com.lachronique"],["App Store", "https://appsto.re/fr/Gf5Zab.i"]]}
         seoTitle="La Chronique - React Native App"
