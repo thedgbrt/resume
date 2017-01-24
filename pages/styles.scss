@@ -24,17 +24,31 @@ html {
 }
 
 body {
-  background: $white;
+  background: $brown;
   font-family: "Whitney A", "Whitney B";
   font-size: $size-m;
   font-style: normal;
   font-weight: $normal;
   line-height: 2.1rem;
-}
 
-.page {
-  padding-bottom: $container-padding;
-  padding-top: $container-padding;
+  border-left: 7px solid $brown;
+  border-right: 7px solid $brown;
+
+  &:before, &:after {
+    content: "";
+    position: fixed;
+    background: $brown;
+    left: 0;
+    right: 0;
+    height: 7px;
+    z-index: 1;
+  }
+  &:before {
+      top: 0;
+  }
+  &:after {
+      bottom: 0;
+  }
 }
 
 .container {
@@ -135,26 +149,8 @@ button.close {
 
 /* homepage */
 .page-home {
-  border-left: 7px solid $brown;
-  border-right: 7px solid $brown;
   padding-left: 2.3rem;
   padding-right: 2.3rem;
-
-  &:before, &:after {
-    content: "";
-    position: fixed;
-    background: $brown;
-    left: 0;
-    right: 0;
-    height: 7px;
-    z-index: 1;
-  }
-  &:before {
-      top: 0;
-  }
-  &:after {
-      bottom: 0;
-  }
 }
 
 .separator-wave {
@@ -426,8 +422,6 @@ button.close {
 
 /* project page */
 .page-project {
-  background-color: $brown;
-
   h3 {
     color: $black;
     margin-top: 3.1rem;
@@ -602,5 +596,149 @@ button.close {
         text-align: center;
       }
     }
+  }
+}
+
+// Animations
+.page {
+  padding-bottom: $container-padding;
+  padding-top: $container-padding;
+  //
+  // &:before {
+  //   transition: all 0.5s;
+  // }
+}
+
+.page-home {
+  // border-left: 7px solid $brown;
+  // border-right: 7px solid $brown;
+
+  // &:before, &:after {
+  //   content: "";
+  //   position: fixed;
+  //   background: $brown;
+  //   left: 0;
+  //   right: 0;
+  //   height: 7px;
+  //   z-index: 1;
+  // }
+  // &:before {
+  //     top: 0;
+  // }
+  // &:after {
+  //     bottom: 0;
+  // }
+}
+
+.page-project {
+  background-color: $brown;
+}
+//
+// .overlay {
+//   opacity: 1;
+//   position: relative;
+//   transition: all 1s;
+//   z-index: 1;
+//   &.hidden {
+//     opacity: 0;
+//     z-index: 0;
+//   }
+// }
+//
+// .modal {
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   top: 0;
+//   z-index: 1;
+//   opacity: 1;
+//   transition: opacity 1s;
+//   &.hidden {
+//     opacity: 0;
+//     z-index: 0;
+//   }
+// }
+//
+.modal {
+  // background: $brown;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  // z-index: 2;
+
+  &.fade-enter.fade-enter-active, &.fade-leave {
+    & > div {
+      opacity: 1;
+    }
+  }
+
+  &.fade-leave.fade-leave-active, &.fade-enter {
+    background: transparent;
+    & > div {
+      opacity: 0;
+    }
+  }
+
+  &.fade-enter.fade-enter-active,
+  &.fade-leave.fade-leave-active {
+    & > div {
+      transition: opacity 400ms;
+    }
+  }
+  &.fade-enter.fade-enter-active {
+    & > div {
+      transition-delay: 200ms;
+    }
+  }
+}
+
+
+.page-home {
+  background: $white;
+  // &:after {
+  //   content: "";
+  //   border-color: $brown;
+  //   border-style: solid;
+  //   border-width: 7px;
+  //   position: fixed;
+  //   bottom: 0;
+  //   left: 0;
+  //   right: 0;
+  //   top: 0;
+  //   z-index: 0;
+  // }
+  //
+  // &:before {
+  //   content: "";
+  //   border-color: $brown;
+  //   border-style: solid;
+  //   border-width: 7px;
+  //   border-radius: 100%;
+  //   position: fixed;
+  //   bottom: -50vh;
+  //   left: -50vw;
+  //   right: -50vw;
+  //   top: -50vh;
+  //   z-index: -1;
+  // }
+
+  // clip-path: ellipse(100vw 100% at 50vw 50vh);
+
+  &.fade-enter.fade-enter-active, &.fade-leave {
+    clip-path: circle(75vw at 50vw 50vh);
+  }
+
+  &.fade-leave.fade-leave-active, &.fade-enter {
+    clip-path: circle(0vw at 50vw 50vh);
+  }
+
+  &.fade-enter.fade-enter-active,
+  &.fade-leave.fade-leave-active {
+    transition: all 350ms cubic-bezier(0.95, 0.05, 0.795, 0.035);
+  }
+
+  &.fade-leave.fade-leave-active {
+      transition: all 500ms cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 }

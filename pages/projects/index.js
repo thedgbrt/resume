@@ -32,7 +32,7 @@ export default class Project extends Component {
 
   render () {
     return (
-      <div className="page page-project">
+      <div>
         <Helmet
           seo_title={this.props.seoTitle}
           meta={[
