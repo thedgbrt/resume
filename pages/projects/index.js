@@ -47,14 +47,14 @@ export default class Project extends Component {
             <h1>{this.props.title}</h1>
             <p className="subtitle">{this.props.subTitle}</p>
             <ul className="links">
-              {this.props.links.map((link, i) => (
+              {this.props.links && this.props.links.map((link, i) => (
                 <li key={i}><a className="external" href={link[1]}>{link[0]}</a></li>
               ))}
             </ul>
           </header>
 
           <article className="project-details">
-            {this.props.content.map((c, i) => (
+            {this.props.content && this.props.content.map((c, i) => (
               <section key={i} className="column">
                 <h3>{c.title}</h3>
                 <ul className="arrows arrows-white">
@@ -74,7 +74,7 @@ export default class Project extends Component {
               infinite
               viewsToShow={"auto"}
             >
-              {this.props.images.map((img, i) => (
+              {this.props.images && this.props.images.map((img, i) => (
                 <View key={i}>
                   <figure className={this.getScreenClassName(img.screen)}>
                     <div className="frame">

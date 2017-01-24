@@ -13,7 +13,8 @@ export default class Template extends Component {
     const from = this.props.location.pathname;
     const to = nextProps.location.pathname;
     this.previousChildren = this.props.children;
-    if (from === "/" && to === "/projects/lachronique/") {
+
+    if (from === "/" && to.startsWith("/projects/")) {
       this.modal = true;
     } else {
       this.modal = false;

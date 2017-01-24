@@ -507,33 +507,33 @@ button.close {
   $l-ratio: 1;
   $xl-ratio: 0.87;
 
-  &.iphone { width: #{$w1 / $s-ratio}rem; }
-  &.pc { width: #{$w2 / $s-ratio}rem; }
-  &.ipad { width: #{$w3 / $s-ratio}rem; }
-  &.ipad-v { width: #{$w4 / $s-ratio}rem; }
+  &.iphone { width: #{round($w1 / $s-ratio)}px; }
+  &.pc { width: #{round($w2 / $s-ratio)}px; }
+  &.ipad { width: #{round($w3 / $s-ratio)}px; }
+  &.ipad-v { width: #{round($w4 / $s-ratio)}px; }
 
   @media (min-width: 420px) {
-    &.iphone { width: #{$w1 / $m-ratio}rem; }
-    &.pc { width: #{$w2 / $m-ratio}rem; }
-    &.ipad { width: #{$w3 / $m-ratio}rem; }
-    &.ipad-v { width: #{$w4 / $m-ratio}rem; }
+    &.iphone { width: #{round($w1 / $m-ratio)}px; }
+    &.pc { width: #{round($w2 / $m-ratio)}px; }
+    &.ipad { width: #{round($w3 / $m-ratio)}px; }
+    &.ipad-v { width: #{round($w4 / $m-ratio)}px; }
   }
 
   @media (min-width: 550px) {
-    &.iphone { width: #{$w1 / $l-ratio}rem; }
-    &.pc { width: #{$w2 / $l-ratio}rem; }
-    &.ipad { width: #{$w3 / $l-ratio}rem; }
-    &.ipad-v { width: #{$w4 / $l-ratio}rem; }
+    &.iphone { width: #{round($w1 / $l-ratio)}px; }
+    &.pc { width: #{round($w2 / $l-ratio)}px; }
+    &.ipad { width: #{round($w3 / $l-ratio)}px; }
+    &.ipad-v { width: #{round($w4 / $l-ratio)}px; }
   }
 
   @media (min-width: 950px) {
     padding-left: 1.2rem;
     padding-right: 1.2rem;
 
-    &.iphone { width: #{$w1 / $xl-ratio}rem; }
-    &.pc { width: #{$w2 / $xl-ratio}rem; }
-    &.ipad { width: #{$w3 / $xl-ratio}rem; }
-    &.ipad-v { width: #{$w4 / $xl-ratio}rem; }
+    &.iphone { width: #{round($w1 / $xl-ratio)}px; }
+    &.pc { width: #{round($w2 / $xl-ratio)}px; }
+    &.ipad { width: #{round($w3 / $xl-ratio)}px; }
+    &.ipad-v { width: #{round($w4 / $xl-ratio)}px; }
   }
 
 }
@@ -547,7 +547,7 @@ button.close {
     padding-right: 0.9rem;
     width: 25rem;
 
-    @include slideshow-frame-width(18.3, 49.3, 52.7, 27.7);
+    @include slideshow-frame-width(183, 493, 527, 277);
     // width: 75vw;
     //
     // @media (min-width: 380px) {
