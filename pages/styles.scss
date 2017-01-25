@@ -742,34 +742,12 @@ button.close {
 
 .page-home {
   background: $white;
-  // &:after {
-  //   content: "";
-  //   border-color: $brown;
-  //   border-style: solid;
-  //   border-width: 7px;
-  //   position: fixed;
-  //   bottom: 0;
-  //   left: 0;
-  //   right: 0;
-  //   top: 0;
-  //   z-index: 0;
-  // }
-  //
-  // &:before {
-  //   content: "";
-  //   border-color: $brown;
-  //   border-style: solid;
-  //   border-width: 7px;
-  //   border-radius: 100%;
-  //   position: fixed;
-  //   bottom: -50vh;
-  //   left: -50vw;
-  //   right: -50vw;
-  //   top: -50vh;
-  //   z-index: -1;
-  // }
 
-  // clip-path: ellipse(100vw 100% at 50vw 50vh);
+  &.fade-leave {
+    .inner {
+      position: relative;
+    }
+  }
 
   &.fade-enter.fade-enter-active, &.fade-leave {
     clip-path: circle(75vw at 50vw 50vh);
@@ -785,7 +763,7 @@ button.close {
   }
 
   &.fade-leave.fade-leave-active {
-      transition: all 500ms cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: all 500ms cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 }
 

@@ -1,15 +1,33 @@
+// @flow
 import React from 'react'
 import { Link } from 'react-router'
 import { prefixLink } from 'gatsby-helpers'
 import Isvg from 'react-inlinesvg'
 import Helmet from 'react-helmet'
 import { config } from 'config'
-import './styles.scss'
+import CustomLink from './_CustomLink'
 
 export default class Index extends React.Component {
+  state: {
+    scrollTop: number
+  };
+
+  constructor (props) {
+    super (props);
+    this.state = {
+      scrollTop: 0
+    };
+  }
+
+  updateScrollPosition = (y: number) => {
+    this.setState({
+      scrollTop: y
+    });
+  };
+
   render () {
     return (
-      <div>
+      <div className="inner" style={{top: "-" + this.state.scrollTop + "px"}}>
         <Helmet
           title={config.siteTitle}
           meta={[
@@ -29,27 +47,39 @@ export default class Index extends React.Component {
         <nav className="projects">
           <p>Here are some things I made:</p>
           <ul>
-            <Link to={prefixLink('/projects/lachronique/')} className="react-native">
+            <CustomLink
+              className="react-native"
+              to={prefixLink('/projects/lachronique/')}
+              setScrollPosition={(pos) => this.updateScrollPosition(pos)}
+            >
               <li>
                 <Isvg className="icon" src="./img/icon-react-native.svg"></Isvg>
                 <strong>La Chronique </strong>
                 <span>React native app</span>
               </li>
-            </Link>
-            <Link to={prefixLink('/projects/euratalent/')} className="web">
+            </CustomLink>
+            <CustomLink
+              className="web"
+              setScrollPosition={(pos) => this.updateScrollPosition(pos)}
+              to={prefixLink('/projects/euratalent/')}
+            >
               <li>
                 <Isvg className="icon" src="./img/icon-websites.svg"></Isvg>
                 <strong>Euratalent </strong>
                 <span>Web app</span>
               </li>
-            </Link>
-            <Link to={prefixLink('/projects/websites/')} className="react">
+            </CustomLink>
+            <CustomLink
+              className="react"
+              setScrollPosition={(pos) => this.updateScrollPosition(pos)}
+              to={prefixLink('/projects/websites/')}
+            >
               <li>
                 <Isvg className="icon" src="./img/icon-react-websites.svg"></Isvg>
                 <strong>Websites </strong>
                 <span>React / WordPress</span>
               </li>
-            </Link>
+            </CustomLink>
           </ul>
         </nav>
 
