@@ -4,8 +4,10 @@
 $black: #000000;
 $blue: #229FFF;
 $blue-dark: #0072E9;
+$blue-darker: #1E4EEB;
 $brown: #CDC3B7;
 $brown-text: #A18D75;
+$brown-dark: #6B4C26;
 $white: #FFFFFF;
 
 $light: 300;
@@ -61,6 +63,7 @@ body {
 
 a {
   color: $blue;
+  transition: all 250ms;
 
   &.external {
     background-image: url('./img/link-external-3x.png');
@@ -68,6 +71,10 @@ a {
     background-repeat: no-repeat;
     background-size: 8px 8px;
     padding-right: 11px;
+  }
+
+  &:hover, &:focus {
+    color: $blue-darker;
   }
 }
 
@@ -280,29 +287,66 @@ button.close {
         margin-right: 2.5rem;
       }
 
+      .icon {
+        float: left;
+      }
+
       &.react-native {
-        background-image: url('./img/project-react-native-3x.jpg');
-        background-size: 48px 51px;
-        padding-left: 54px;
+        .icon {
+          width: 48px;
+          height: 51px;
+          padding-right: 6px;
+          .st0{fill:#CCC2B6;}
+          .st1{clip-path:url(#SVGID_2_);fill:#FFFFFF;}
+          .st2{clip-path:url(#SVGID_2_);fill:none;stroke:#CCC2B6;stroke-miterlimit:10;}
+        }
       }
 
-      &.web {
-        background-image: url('./img/project-web-3x.jpg');
-        background-size: 78px 54px;
-        padding-left: 88px;
+      &.web, &.react {
+        .icon {
+          height: 54px;
+          width: 78px;
+          padding-right: 10px;
+        }
       }
 
-      &.react {
-        background-image: url('./img/project-react-3x.jpg');
-        background-size: 78px 54px;
-        padding-left: 88px;
+      &.react .icon {
+        .st0{clip-path:url(#SVGID_2_);fill:#FFFFFF;}
+        .st1{clip-path:url(#SVGID_4_);fill:none;stroke:#CCC2B6;stroke-width:0.912;stroke-miterlimit:10;}
+        .st2{fill:#FFFFFF;}
+        .st3{clip-path:url(#SVGID_6_);fill:#FFFFFF;}
+        .st4{clip-path:url(#SVGID_8_);fill:none;stroke:#CCC2B6;stroke-width:0.912;stroke-miterlimit:10;}
+        .st5{fill:none;}
+        .st6{clip-path:url(#SVGID_10_);}
+        .st7{fill:#CCC2B6;}
+        .st8{clip-path:url(#SVGID_12_);fill:#FFFFFF;}
+        .st9{clip-path:url(#SVGID_14_);fill:none;stroke:#CCC2B6;stroke-miterlimit:10;}
+        .st10{clip-path:url(#SVGID_16_);fill:#FFFFFF;}
+        .st11{clip-path:url(#SVGID_18_);fill:none;stroke:#CCC2B6;stroke-miterlimit:10;}
+      }
+
+      &.web .icon {
+        .st0{clip-path:url(#SVGID_2_);fill:none;stroke:#CCC2B6;stroke-width:0.912;stroke-miterlimit:10;}
+        .st1{fill:#FFFFFF;}
+        .st2{clip-path:url(#SVGID_4_);fill:#FFFFFF;}
+        .st3{clip-path:url(#SVGID_4_);fill:none;stroke:#CCC2B6;stroke-miterlimit:10;}
+        .st4{clip-path:url(#SVGID_6_);fill:#FFFFFF;}
+        .st5{clip-path:url(#SVGID_6_);fill:none;stroke:#CCC2B6;stroke-width:0.912;stroke-miterlimit:10;}
       }
 
       strong {
         border-bottom: 1px solid $blue;
         color: $blue;
         display: inline-block;
+        transition: all 250ms;
         @extend .title;
+      }
+
+      &:hover, &:focus {
+        strong {
+          color: $blue-darker;
+          border-color: $blue-darker;
+        }
       }
 
       span {
@@ -347,6 +391,10 @@ button.close {
   a {
     color: $brown-text;
     font-weight: $bold;
+
+    &:hover, a:focus {
+      color: $brown-dark;
+    }
   }
 
   & + p {
@@ -433,6 +481,10 @@ button.close {
 
     &.external {
       background-image: url('./img/link-external-dark-3x.png');
+    }
+
+    &:hover, &:focus {
+      color: $blue-darker;
     }
   }
 
@@ -734,5 +786,64 @@ button.close {
 
   &.fade-leave.fade-leave-active {
       transition: all 500ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+}
+
+/* skill chart */
+.skill-chart {
+  height: 234px;
+  width: 266px;
+  .st2{
+    font-family: "Whitney A", "Whitney B";
+    font-size: $size-m;
+    font-style: normal;
+    font-weight: $normal;
+  }
+  .st6{clip-path:url(#SVGID_6_);fill:#A08C75;}
+  .st7{clip-path:url(#SVGID_2_);fill:#A08C75;}
+  .st8{clip-path:url(#SVGID_8_);fill:#A08C75;}
+  .st9{clip-path:url(#SVGID_2_);fill:none;stroke:#A08C75;stroke-miterlimit:10;}
+  .st11{font-size:17px;}
+  .st15{opacity:0.38;clip-path:url(#SVGID_16_);}
+  .st16{clip-path:url(#SVGID_18_);fill:$blue;}
+
+  .st16 {
+    animation: pulse 2.5s infinite;
+    transform-origin: center center;
+  }
+
+  @keyframes pulse {
+    0% {
+      fill: $blue;
+      transform: scale(1);
+    }
+    50% {
+      fill: $blue-dark;
+      transform: scale(1.1);
+    }
+    100% {
+      fill: $blue;
+      transform: scale(1);
+    }
+  }
+}
+
+.projects ul {
+  .icon {
+    .react-logo {
+      animation: rotate 7s infinite;
+      animation-timing-function: linear;
+      fill: red;
+      transform-origin: center center;
+    }
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
 }

@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router'
 import { prefixLink } from 'gatsby-helpers'
-import './styles.scss'
+import Isvg from 'react-inlinesvg'
 import Helmet from 'react-helmet'
 import { config } from 'config'
+import './styles.scss'
 
 export default class Index extends React.Component {
   render () {
@@ -29,13 +30,25 @@ export default class Index extends React.Component {
           <p>Here are some things I made:</p>
           <ul>
             <Link to={prefixLink('/projects/lachronique/')} className="react-native">
-              <li><strong>La Chronique </strong><span>React native app</span></li>
+              <li>
+                <Isvg className="icon" src="./img/icon-react-native.svg"></Isvg>
+                <strong>La Chronique </strong>
+                <span>React native app</span>
+              </li>
             </Link>
             <Link to={prefixLink('/projects/euratalent/')} className="web">
-              <li><strong>Euratalent </strong><span>Web app</span></li>
+              <li>
+                <Isvg className="icon" src="./img/icon-websites.svg"></Isvg>
+                <strong>Euratalent </strong>
+                <span>Web app</span>
+              </li>
             </Link>
             <Link to={prefixLink('/projects/websites/')} className="react">
-              <li><strong>Websites </strong><span>React / WordPress</span></li>
+              <li>
+                <Isvg className="icon" src="./img/icon-react-websites.svg"></Isvg>
+                <strong>Websites </strong>
+                <span>React / WordPress</span>
+              </li>
             </Link>
           </ul>
         </nav>
@@ -65,7 +78,7 @@ export default class Index extends React.Component {
         <section className="skills">
           <div className="col-1">
             <h2>Skills</h2>
-            <img className="skill-chart" src="img/skill-chart-3x.gif" height="234px" width="266px"/>
+            <Isvg className="skill-chart" src="./img/skill-chart.svg"></Isvg>
           </div>
 
           <div className="col-2">
