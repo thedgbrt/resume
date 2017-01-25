@@ -706,39 +706,38 @@ button.close {
 // }
 //
 .modal {
-  // background: $brown;
+  background: $brown;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   // z-index: 2;
 
-  &.fade-enter.fade-enter-active, &.fade-leave {
-    & > div {
-      opacity: 1;
-    }
-  }
-
-  &.fade-leave.fade-leave-active, &.fade-enter {
-    background: transparent;
-    & > div {
-      opacity: 0;
-    }
-  }
-
-  &.fade-enter.fade-enter-active,
-  &.fade-leave.fade-leave-active {
-    & > div {
-      transition: opacity 400ms;
-    }
-  }
-  &.fade-enter.fade-enter-active {
-    & > div {
-      transition-delay: 200ms;
-    }
-  }
+  // &.fade-enter.fade-enter-active, &.fade-leave {
+  //   & > div {
+  //     opacity: 1;
+  //   }
+  // }
+  //
+  // &.fade-leave.fade-leave-active, &.fade-enter {
+  //   background: transparent;
+  //   & > div {
+  //     opacity: 0;
+  //   }
+  // }
+  //
+  // &.fade-enter.fade-enter-active,
+  // &.fade-leave.fade-leave-active {
+  //   & > div {
+  //     transition: opacity 400ms;
+  //   }
+  // }
+  // &.fade-enter.fade-enter-active {
+  //   & > div {
+  //     transition-delay: 200ms;
+  //   }
+  // }
 }
-
 
 .page-home {
   background: $white;
@@ -749,22 +748,35 @@ button.close {
     }
   }
 
-  &.fade-enter.fade-enter-active, &.fade-leave {
-    clip-path: circle(75vw at 50vw 50vh);
+  .outer-frame {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+    
+    &.animating{
+      z-index: 1;
+    }
   }
-
-  &.fade-leave.fade-leave-active, &.fade-enter {
-    clip-path: circle(0vw at 50vw 50vh);
-  }
-
-  &.fade-enter.fade-enter-active,
-  &.fade-leave.fade-leave-active {
-    transition: all 350ms cubic-bezier(0.95, 0.05, 0.795, 0.035);
-  }
-
-  &.fade-leave.fade-leave-active {
-    transition: all 500ms cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
+  //
+  // &.fade-enter.fade-enter-active, &.fade-leave {
+  //   clip-path: circle(75vw at 50vw 50vh);
+  // }
+  //
+  // &.fade-leave.fade-leave-active, &.fade-enter {
+  //   clip-path: circle(0vw at 50vw 50vh);
+  // }
+  //
+  // &.fade-enter.fade-enter-active,
+  // &.fade-leave.fade-leave-active {
+  //   transition: all 350ms cubic-bezier(0.95, 0.05, 0.795, 0.035);
+  // }
+  //
+  // &.fade-leave.fade-leave-active {
+  //   transition: all 500ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  // }
 }
 
 /* skill chart */
