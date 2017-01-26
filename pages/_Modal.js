@@ -4,37 +4,42 @@ export default class Modal extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      hidden: true,
-      rendered: false
+      animating: false,
+      showBg: false,
+      showContent: false,
+      renderContent: false
     }
   }
 
   componentWillEnter(callback) {
-    setTimeout(callback, 500);
+    this.setState({animating: true});
+    callback();
   }
 
   componentDidEnter() {
-    console.log('did enter');
-    this.setState({rendered: true});
+    this.setState({showBg: true});
     setTimeout(() => {
-      this.setState({hidden: false});
-    }, 100);
+      this.setState({renderContent: true});
+    }, 300);
+    setTimeout(() => {
+      this.setState({animating: false});
+      this.setState({showContent: true});
+    }, 500);
   }
 
   componentWillLeave(callback) {
-    this.setState({hidden: true});
-    setTimeout(callback, 400);
+    this.setState({showBg: false});
+    this.setState({animating: true});
+    setTimeout(callback, 300);
   }
 
   render () {
-    console.log(this.state.rendered, this.state.hidden);
-    if(this.state.rendered) {
-      return (
-        <div className={this.state.hidden ? "modal hidden" : "modal"}>
-          {this.props.children}
+    return (
+      <div className={"modal " + (!this.state.showBg ? "hidden " : "") + (this.state.animating ? "animating" : "")}>
+        <div className={"inner " + (!this.state.showContent ? "hidden" : "")}>
+          {this.state.renderContent ? this.props.children : null}
         </div>
-      );
-    }
-    return null;
+      </div>
+    );
   }
 }

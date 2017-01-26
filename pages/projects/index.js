@@ -16,15 +16,9 @@ type Props = {
 
 export default class Project extends Component {
   props: Props;
-  state: {
-    hidden: boolean
-  };
 
   constructor(props) {
     super(props);
-    this.state = {
-      hidden: false
-    }
   }
 
   getScreenClassName = (id: number) => {
@@ -40,24 +34,15 @@ export default class Project extends Component {
     }
   };
 
-  onClose = () => {
-    this.setState({hidden: true});
-    setTimeout(() => {
-      browserHistory.goBack()
-    }, 150);
-  };
-
   render () {
     return (
-      <div className={this.state.hidden ? "hidden page page-project" : "page page-project"}>
+      <div className="page page-project">
         <Helmet
           seo_title={this.props.seoTitle}
-          meta={[
-            {"name": "description", "content": this.props.seoDescription}
-          ]}
+          meta={[{"name": "description", "content": this.props.seoDescription}]}
         />
 
-        <button className="close" onClick={() => this.onClose()}>Back</button>
+        <button className="close" onClick={() => browserHistory.goBack()}>Back</button>
 
         <div className="container">
           <header className="project-title">
@@ -97,9 +82,7 @@ export default class Project extends Component {
                     <div className="frame">
                       <img
                         src={"/projects/img/" + img.file + ".jpg"}
-                        srcSet={
-                          "/projects/img/" + img.file + "@2x.jpg 2x," +
-                          "/projects/img/" + img.file + "@3x.jpg 3x"} />
+                        srcSet={"/projects/img/" + img.file + "@2x.jpg 2x"} />
                     </div>
                     <figcaption><p>{img.title}</p></figcaption>
                   </figure>
