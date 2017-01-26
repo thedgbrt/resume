@@ -16,6 +16,16 @@ type Props = {
 
 export default class Project extends Component {
   props: Props;
+  state: {
+    hidden: boolean
+  };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      hidden: false
+    }
+  }
 
   getScreenClassName = (id: number) => {
     switch (id) {
@@ -30,9 +40,16 @@ export default class Project extends Component {
     }
   };
 
+  onClose = () => {
+    this.setState({hidden: true});
+    setTimeout(() => {
+      browserHistory.goBack()
+    }, 150);
+  };
+
   render () {
     return (
-      <div>
+      <div className={this.state.hidden ? "hidden page page-project" : "page page-project"}>
         <Helmet
           seo_title={this.props.seoTitle}
           meta={[
@@ -40,7 +57,7 @@ export default class Project extends Component {
           ]}
         />
 
-        <button className="close" onClick={() => browserHistory.goBack()}>Back</button>
+        <button className="close" onClick={() => this.onClose()}>Back</button>
 
         <div className="container">
           <header className="project-title">

@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import { prefixLink } from 'gatsby-helpers'
 import Isvg from 'react-inlinesvg'
 import { MorphReplace } from 'react-svg-morph'
+import { easeOutQuint } from 'react-svg-morph/lib/utils/easing'
 import Helmet from 'react-helmet'
 import { config } from 'config'
 import CustomLink from './_CustomLink'
@@ -11,9 +12,8 @@ import CustomLink from './_CustomLink'
 class Checked extends React.Component {
   render() {
     return (
-      <svg width="100" fill="#00ea00" height="100" viewBox="0 0 100 100">
-        <path d="M0,0v100h100V0H0z M50,50.9c-0.3,0-0.5-0.1-0.7-0.3S49,50.2,49.1,50c0-0.2,0.1-0.5,0.3-0.6c0.2-0.2,0.4-0.3,0.6-0.3
-          	c0.3,0,0.5,0.1,0.7,0.3s0.3,0.4,0.3,0.7c0,0.2-0.1,0.5-0.3,0.6C50.5,50.8,50.3,50.9,50,50.9z"/>
+      <svg width="100" height="100" viewBox="0 0 100 100">
+        <path d="M0,0v100h100V0H0z M50,50C50,50,50,50,50,50C50,50,50,50,50,50C50,50,50,50,50,50C50,50,50,50,50,50z"/>
       </svg>
     );
   }
@@ -22,9 +22,8 @@ class Checked extends React.Component {
 class CheckBox extends React.Component {
   render() {
     return (
-      <svg width="100" height="100" fill="#666666" viewBox="0 0 100 100">
-        <path d="M0,0v100h100V0H0z M50,99c-14,0-40,0-49,0c0-9.8,0-35.3,0-49C1,37.8,1,10.3,1,1c8.5,0,36.7,0,49,0c14.2,0,39.5,0,49,0
-          	c0,12.5,0,35.3,0,49c0,11.9,0,40,0,49C89.7,99,62,99,50,99z"/>
+      <svg width="100" height="100" viewBox="0 0 100 100">
+        <path d="M0,0v100h100V0H0z M50,97C24,97,3,76,3,50S24,3,50,3s47,21,47,47S76,97,50,97z"/>
       </svg>
     );
   }
@@ -51,9 +50,8 @@ export default class Index extends React.Component {
   };
 
   componentWillLeave(callback) {
-    console.log('e');
     this.setState({animating: true});
-    setTimeout(callback, 1000);
+    setTimeout(callback, 500);
   }
 
   render () {
@@ -61,6 +59,8 @@ export default class Index extends React.Component {
       <div className="page page-home">
         <MorphReplace
           className={this.state.animating ? "outer-frame animating" : "outer-frame"}
+          duration={300}
+          easing={easeOutQuint}
           height={100}
           preserveAspectRatio="none"
           rotation="none"
@@ -69,7 +69,7 @@ export default class Index extends React.Component {
           {this.state.animating ? <Checked key="checked" /> : <CheckBox key="checkbox" />}
         </MorphReplace>
 
-        <div className="inner" style={{top: "-" + this.state.scrollTop + "px"}}>
+        <div className={this.state.animating ? "inner animating" : "inner"} style={{top: "-" + this.state.scrollTop + "px"}}>
           <Helmet
             title={config.siteTitle}
             meta={[
