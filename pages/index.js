@@ -1,5 +1,5 @@
 // @flow
-import React from 'react'
+import React, { Component } from 'react'
 import { Link } from 'react-router'
 import { prefixLink } from 'gatsby-helpers'
 import Isvg from 'react-inlinesvg'
@@ -7,14 +7,16 @@ import Helmet from 'react-helmet'
 import { config } from 'config'
 import CustomLink from './_CustomLink'
 
-export default class Index extends React.Component {
+export default class Index extends Component {
   state: {
+    animating: boolean,
     scrollTop: number
   };
 
   constructor (props) {
     super (props);
     this.state = {
+      animating: false,
       scrollTop: 0
     };
   }
@@ -25,14 +27,21 @@ export default class Index extends React.Component {
     });
   };
 
+  componentWillLeave(callback) {
+    // sets class to maintain scroll position during transition to other page
+    this.setState({animating: true});
+    setTimeout(callback, 500);
+  }
+
   render () {
     return (
-      <div className="inner" style={{top: "-" + this.state.scrollTop + "px"}}>
+      <div
+        className={this.state.animating ? "page page-home animating" : "page page-home"}
+        style={{top: "-" + this.state.scrollTop + "px"}}
+      >
         <Helmet
           title={config.siteTitle}
-          meta={[
-            {"name": "description", "content": "Sample"}
-          ]}
+          meta={[ {"name": "description", "content": "Sample"} ]}
         />
 
         <header className="identity">

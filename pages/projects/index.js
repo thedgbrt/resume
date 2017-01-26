@@ -17,6 +17,10 @@ type Props = {
 export default class Project extends Component {
   props: Props;
 
+  constructor(props) {
+    super(props);
+  }
+
   getScreenClassName = (id: number) => {
     switch (id) {
       case 1:
@@ -32,12 +36,10 @@ export default class Project extends Component {
 
   render () {
     return (
-      <div>
+      <div className="page page-project">
         <Helmet
           seo_title={this.props.seoTitle}
-          meta={[
-            {"name": "description", "content": this.props.seoDescription}
-          ]}
+          meta={[{"name": "description", "content": this.props.seoDescription}]}
         />
 
         <button className="close" onClick={() => browserHistory.goBack()}>Back</button>
@@ -80,9 +82,7 @@ export default class Project extends Component {
                     <div className="frame">
                       <img
                         src={"/projects/img/" + img.file + ".jpg"}
-                        srcSet={
-                          "/projects/img/" + img.file + "@2x.jpg 2x," +
-                          "/projects/img/" + img.file + "@3x.jpg 3x"} />
+                        srcSet={"/projects/img/" + img.file + "@2x.jpg 2x"} />
                     </div>
                     <figcaption><p>{img.title}</p></figcaption>
                   </figure>

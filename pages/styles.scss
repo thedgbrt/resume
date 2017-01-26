@@ -154,8 +154,16 @@ button.close {
   z-index: 1;
 }
 
+/* pages */
+.page {
+  opacity: 1;
+  padding-bottom: $container-padding;
+  padding-top: $container-padding;
+}
+
 /* homepage */
 .page-home {
+  background: $white;
   padding-left: 2.3rem;
   padding-right: 2.3rem;
 }
@@ -419,6 +427,22 @@ button.close {
 
   .skill-chart {
     margin-bottom: 4rem;
+    height: 234px;
+    width: 266px;
+
+    .st2{
+      font-family: "Whitney A", "Whitney B";
+      font-size: $size-m;
+      font-style: normal;
+      font-weight: $normal;
+    }
+    .st6{clip-path:url(#SVGID_6_);fill:#A08C75;}
+    .st7{clip-path:url(#SVGID_2_);fill:#A08C75;}
+    .st8{clip-path:url(#SVGID_8_);fill:#A08C75;}
+    .st9{clip-path:url(#SVGID_2_);fill:none;stroke:#A08C75;stroke-miterlimit:10;}
+    .st11{font-size:17px;}
+    .st15{opacity:0.38;clip-path:url(#SVGID_16_);}
+    .st16{clip-path:url(#SVGID_18_);fill:$blue;}
   }
 
   @media (min-width:720px) {
@@ -470,6 +494,8 @@ button.close {
 
 /* project page */
 .page-project {
+  background-color: $brown;
+
   h3 {
     color: $black;
     margin-top: 3.1rem;
@@ -587,7 +613,6 @@ button.close {
     &.ipad { width: #{round($w3 / $xl-ratio)}px; }
     &.ipad-v { width: #{round($w4 / $xl-ratio)}px; }
   }
-
 }
 
 .slideshow {
@@ -645,146 +670,66 @@ button.close {
   }
 }
 
-// Animations
-.page {
-  padding-bottom: $container-padding;
-  padding-top: $container-padding;
-  //
-  // &:before {
-  //   transition: all 0.5s;
-  // }
-}
-
-.page-home {
-  // border-left: 7px solid $brown;
-  // border-right: 7px solid $brown;
-
-  // &:before, &:after {
-  //   content: "";
-  //   position: fixed;
-  //   background: $brown;
-  //   left: 0;
-  //   right: 0;
-  //   height: 7px;
-  //   z-index: 1;
-  // }
-  // &:before {
-  //     top: 0;
-  // }
-  // &:after {
-  //     bottom: 0;
-  // }
-}
-
-.page-project {
-  background-color: $brown;
-}
-//
-// .overlay {
-//   opacity: 1;
-//   position: relative;
-//   transition: all 1s;
-//   z-index: 1;
-//   &.hidden {
-//     opacity: 0;
-//     z-index: 0;
-//   }
-// }
-//
-// .modal {
-//   position: absolute;
-//   left: 0;
-//   right: 0;
-//   top: 0;
-//   z-index: 1;
-//   opacity: 1;
-//   transition: opacity 1s;
-//   &.hidden {
-//     opacity: 0;
-//     z-index: 0;
-//   }
-// }
-//
+// Modal
 .modal {
-  // background: $brown;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  // z-index: 2;
+  bottom: 0;
+  opacity: 1;
+  z-index: 1;
+}
 
-  &.fade-enter.fade-enter-active, &.fade-leave {
-    & > div {
-      opacity: 1;
-    }
+// Animations
+// Modal slide in and fade out
+.modal {
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: $brown;
+    transform: translateX(0);
+    transform-origin: top left;
+    transition: transform 300ms;
+    z-index: -1;
   }
 
-  &.fade-leave.fade-leave-active, &.fade-enter {
-    background: transparent;
-    & > div {
+  &.hidden {
+    &:after {
+      transform: translateX(100vw);
+      transition: none;
+    }
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+
+  &.animating {
+    position: fixed;
+  }
+
+  .inner {
+    opacity: 1;
+    transition: all 300ms;
+    transform: translateX(0);
+
+    &.hidden {
       opacity: 0;
-    }
-  }
-
-  &.fade-enter.fade-enter-active,
-  &.fade-leave.fade-leave-active {
-    & > div {
-      transition: opacity 400ms;
-    }
-  }
-  &.fade-enter.fade-enter-active {
-    & > div {
-      transition-delay: 200ms;
+      transform: translateX(10vw);
     }
   }
 }
 
-
-.page-home {
-  background: $white;
-
-  &.fade-leave {
-    .inner {
-      position: relative;
-    }
-  }
-
-  &.fade-enter.fade-enter-active, &.fade-leave {
-    clip-path: circle(75vw at 50vw 50vh);
-  }
-
-  &.fade-leave.fade-leave-active, &.fade-enter {
-    clip-path: circle(0vw at 50vw 50vh);
-  }
-
-  &.fade-enter.fade-enter-active,
-  &.fade-leave.fade-leave-active {
-    transition: all 350ms cubic-bezier(0.95, 0.05, 0.795, 0.035);
-  }
-
-  &.fade-leave.fade-leave-active {
-    transition: all 500ms cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
+/* keep homepage scroll position during page transition */
+.page-home.animating {
+  position: relative;
 }
 
-/* skill chart */
+/* skill chart pulse */
 .skill-chart {
-  height: 234px;
-  width: 266px;
-  .st2{
-    font-family: "Whitney A", "Whitney B";
-    font-size: $size-m;
-    font-style: normal;
-    font-weight: $normal;
-  }
-  .st6{clip-path:url(#SVGID_6_);fill:#A08C75;}
-  .st7{clip-path:url(#SVGID_2_);fill:#A08C75;}
-  .st8{clip-path:url(#SVGID_8_);fill:#A08C75;}
-  .st9{clip-path:url(#SVGID_2_);fill:none;stroke:#A08C75;stroke-miterlimit:10;}
-  .st11{font-size:17px;}
-  .st15{opacity:0.38;clip-path:url(#SVGID_16_);}
-  .st16{clip-path:url(#SVGID_18_);fill:$blue;}
-
   .st16 {
     animation: pulse 2.5s infinite;
     transform-origin: center center;
@@ -806,6 +751,7 @@ button.close {
   }
 }
 
+/* projects react icon rotate */
 .projects ul {
   .icon {
     .react-logo {

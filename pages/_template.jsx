@@ -1,54 +1,40 @@
+// @flow
 import React, { Component } from 'react'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import ReactTransitionGroup from 'react-addons-transition-group'
+import Modal from './_Modal';
 import './styles.scss'
 
 export default class Template extends Component {
+  state: {
+    modal: boolean
+  };
+
   constructor (props) {
     super(props);
-    this.modal = false;
-    this.previousChildren = null;
+    this.state = {
+      modal: false
+    };
   }
 
   componentWillReceiveProps(nextProps) {
-    const from = this.props.location.pathname;
-    const to = nextProps.location.pathname;
-    this.previousChildren = this.props.children;
-
-    if (from === "/" && to.startsWith("/projects/")) {
-      this.modal = true;
+    if (this.props.location.pathname === "/" &&
+        nextProps.location.pathname.startsWith("/projects/")) {
+      this.setState({modal:true});
     } else {
-      this.modal = false;
+      this.setState({modal:false});
     }
   }
 
   render () {
     return (
       <div>
-        <ReactCSSTransitionGroup
-          component="div"
-          transitionName="fade"
-          transitionEnterTimeout={700}
-          transitionLeaveTimeout={700}
-        >
-          {this.modal ? (
-            <div className="modal page page-project">
-              {this.props.children}
-            </div>
-          ) : null}
-        </ReactCSSTransitionGroup>
+        <ReactTransitionGroup key="1" component="div">
+          {this.state.modal ? <Modal>{this.props.children}</Modal> : null}
+        </ReactTransitionGroup>
 
-        <ReactCSSTransitionGroup
-          component="div"
-          transitionName="fade"
-          transitionEnterTimeout={500}
-          transitionLeaveTimeout={500}
-        >
-          {this.modal ? null : (
-            <div className="page page-home">
-              {this.props.children}
-            </div>
-          )}
-        </ReactCSSTransitionGroup>
+        <ReactTransitionGroup key="2" component="div">
+          {this.state.modal ? null : this.props.children}
+        </ReactTransitionGroup>
       </div>
     )
   }
