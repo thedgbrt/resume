@@ -1,8 +1,8 @@
 // @flow
-import React from 'react'
+import React, { Component } from 'react'
 import Project from './';
 
-export default class Euratalent extends React.Component {
+export default class Euratalent extends Component {
   render () {
     return (
       <Project

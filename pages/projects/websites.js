@@ -1,8 +1,8 @@
 // @flow
-import React from 'react'
+import React, { Component } from 'react'
 import Project from './';
 
-export default class Websites extends React.Component {
+export default class Websites extends Component {
   render () {
     return (
       <Project
