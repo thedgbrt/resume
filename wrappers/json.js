@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from 'react'
 import Helmet from 'react-helmet'
+// $FlowFixMe
 import { config } from 'config'
 import { browserHistory } from 'react-router'
 import { ViewPager, Frame, Track, View } from 'react-view-pager'
@@ -8,13 +9,15 @@ import { ViewPager, Frame, Track, View } from 'react-view-pager'
 type Props = {
   route: {
     page: {
-      content: [{title: string, list: [string]}],
-      images: [{file: string, title: string, screen: number}],
-      links: [[string, string]],
-      seoDescription: string,
-      seoTitle: string,
-      subTitle: string,
-      title: string
+      data: {
+        content: [{title: string, list: [string]}],
+        images: [{file: string, title: string, screen: number}],
+        links: [[string, string]],
+        seoDescription: string,
+        seoTitle: string,
+        subTitle: string,
+        title: string
+      }
     }
   }
 };
@@ -22,7 +25,7 @@ type Props = {
 export default class Project extends Component {
   props: Props;
 
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
   }
 
@@ -40,7 +43,7 @@ export default class Project extends Component {
   };
 
   render () {
-    const data = this.props.route.page.data
+    const data = this.props.route.page.data;
     return (
       <div className="page page-project">
         <Helmet

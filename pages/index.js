@@ -1,9 +1,11 @@
 // @flow
 import React, { Component } from 'react'
 import { Link } from 'react-router'
+// $FlowFixMe
 import { prefixLink } from 'gatsby-helpers'
 import Isvg from 'react-inlinesvg'
 import Helmet from 'react-helmet'
+// $FlowFixMe
 import { config } from 'config'
 import CustomLink from './_CustomLink'
 
@@ -13,8 +15,8 @@ export default class Index extends Component {
     scrollTop: number
   };
 
-  constructor (props) {
-    super (props);
+  constructor () {
+    super();
     this.state = {
       animating: false,
       scrollTop: 0
@@ -27,7 +29,7 @@ export default class Index extends Component {
     });
   };
 
-  componentWillLeave(callback) {
+  componentWillLeave(callback: () => void) {
     // sets class to maintain scroll position during transition to other page
     this.setState({animating: true});
     setTimeout(callback, 500);

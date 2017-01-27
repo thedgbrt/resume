@@ -1,7 +1,19 @@
+// @flow
 import React, { Component } from 'react'
 
+type Props = {
+  children: any
+}
+
 export default class Modal extends Component {
-  constructor (props) {
+  state: {
+    animating: boolean,
+    showBg: boolean,
+    showContent: boolean,
+    renderContent: boolean
+  }
+
+  constructor (props:Props) {
     super(props);
     this.state = {
       animating: false,
@@ -11,7 +23,7 @@ export default class Modal extends Component {
     }
   }
 
-  componentWillEnter(callback) {
+  componentWillEnter(callback: () => void) {
     this.setState({animating: true});
     callback();
   }
@@ -27,7 +39,7 @@ export default class Modal extends Component {
     }, 500);
   }
 
-  componentWillLeave(callback) {
+  componentWillLeave(callback: () => void) {
     this.setState({showBg: false});
     this.setState({animating: true});
     setTimeout(callback, 300);
