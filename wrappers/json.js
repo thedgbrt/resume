@@ -1,17 +1,22 @@
 // @flow
 import React, { Component } from 'react'
-import { browserHistory } from 'react-router'
 import Helmet from 'react-helmet'
+import { config } from 'config'
+import { browserHistory } from 'react-router'
 import { ViewPager, Frame, Track, View } from 'react-view-pager'
 
 type Props = {
-  content: [{title: string, list: [string]}],
-  images: [{file: string, title: string, screen: number}],
-  links: [[string, string]],
-  seoDescription: string,
-  seoTitle: string,
-  subTitle: string,
-  title: string
+  route: {
+    page: {
+      content: [{title: string, list: [string]}],
+      images: [{file: string, title: string, screen: number}],
+      links: [[string, string]],
+      seoDescription: string,
+      seoTitle: string,
+      subTitle: string,
+      title: string
+    }
+  }
 };
 
 export default class Project extends Component {
@@ -35,28 +40,29 @@ export default class Project extends Component {
   };
 
   render () {
+    const data = this.props.route.page.data
     return (
       <div className="page page-project">
         <Helmet
-          seo_title={this.props.seoTitle}
-          meta={[{"name": "description", "content": this.props.seoDescription}]}
+          seo_title={data.seoTitle}
+          meta={[{"name": "description", "content": data.seoDescription}]}
         />
 
         <button className="close" onClick={() => browserHistory.goBack()}>Back</button>
 
         <div className="container">
           <header className="project-title">
-            <h1>{this.props.title}</h1>
-            <p className="subtitle">{this.props.subTitle}</p>
+            <h1>{data.title}</h1>
+            <p className="subtitle">{data.subTitle}</p>
             <ul className="links">
-              {this.props.links && this.props.links.map((link, i) => (
+              {data.links && data.links.map((link, i) => (
                 <li key={i}><a className="external" href={link[1]}>{link[0]}</a></li>
               ))}
             </ul>
           </header>
 
           <article className="project-details">
-            {this.props.content && this.props.content.map((c, i) => (
+            {data.content && data.content.map((c, i) => (
               <section key={i} className="column">
                 <h3>{c.title}</h3>
                 <ul className="arrows arrows-white">
@@ -76,7 +82,7 @@ export default class Project extends Component {
               infinite
               viewsToShow={"auto"}
             >
-              {this.props.images && this.props.images.map((img, i) => (
+              {data.images && data.images.map((img, i) => (
                 <View key={i}>
                   <figure className={this.getScreenClassName(img.screen)}>
                     <div className="frame">
