@@ -1,0 +1,33 @@
+{
+  "content": "<p>I opened my own consulting firm in France in 2013, with a focus on product design and development.</p><p>To get lots of clients quickly, I set out to grab a spot in the top results of Google for the \"webdesigner\" search term.</p><p>The strategy was simple: create a design that was remarkable enough to get the attention of css design galleries. This would automatically generate lots of medium quality links to my website, enough to beat the competition.</p><p>The website ended up ranking number 3 for the \"webdesigner\" keyword at the national level for a few months (1st in my region), which led dozens of prospects to call me every month and offer me work.</p><p>After working with different types of businesses, I found my sweet spot by partnering with design agencies. I just loved to be able to trust other people with design, and only focus on producing high quality code for them.</p>",
+  "images": [
+    {
+      "file":"dgbrt-1",
+      "title":"Homepage",
+      "screen":2
+    },
+    {
+      "file":"dgbrt-2",
+      "title":"Portfolio intro",
+      "screen":1
+    },
+    {
+      "file":"dgbrt-3",
+      "title":"Services",
+      "screen":4
+    },
+    {
+      "file":"dgbrt-4",
+      "title":"Portfolio",
+      "screen":3
+    }
+  ],
+  "links": [
+    ["dgbrt.fr", "http://www.dgbrt.fr/en"]
+  ],
+  "seoTitle": "Dgbrt consulting business",
+  "seoDescription": "The story behind dgbrt consulting firm creation.",
+  "subTitle": "2013-2016, founder, contractor, strategy, product design, ux/ui design, full stack development, seo",
+  "title": "Dgbrt consulting business",
+  "type": "experience"
+}

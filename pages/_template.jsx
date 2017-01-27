@@ -27,8 +27,10 @@ export default class Template extends Component {
   }
 
   componentWillReceiveProps(nextProps: Props) {
-    if (this.props.location.pathname === "/" &&
-        nextProps.location.pathname.startsWith("/projects/")) {
+    const path1 = this.props.location.pathname;
+    const path2 = nextProps.location.pathname;
+
+    if (path1 === "/" && ( path2.startsWith("/experiences/") || path2.startsWith("/projects/") ) ) {
       this.setState({modal:true});
     } else {
       this.setState({modal:false});

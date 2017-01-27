@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import Project from '../pages/_Project';
+import Experience from '../pages/_Experience';
 // $FlowFixMe
 import { config } from 'config'
 
@@ -10,7 +11,7 @@ export type Data = {
   seoTitle: string,
   title: string,
   subTitle: string,
-  type: "project",
+  type: "project" | "experience",
   links: [[string, string]],
   images: [{file: string, title: string, screen: number}],
   content: [{title: string, list: [string]}] | string
@@ -23,7 +24,9 @@ export default class JsonWrapper extends Component {
 
   renderPage = (data: Data) => {
     if(data.type === "project") {
-      return <Project {...data} />;
+      return <Project data={data} />;
+    } else if (data.type === "experience") {
+      return <Experience data={data} />;
     }
     return null;
   };

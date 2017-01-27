@@ -78,5 +78,6 @@
   "seoTitle":"La Chronique - React Native App",
   "seoDescription":"React Native development for iOS and Android app.",
   "subTitle":"Daily news and prizes related to local cultural events.",
-  "title":"La Chronique"
+  "title":"La Chronique",
+  "type": "project"
 }
