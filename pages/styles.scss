@@ -148,16 +148,17 @@ h2 + ul, h3 + ul {
 button.close {
   background-color: transparent;
   background-image: url('./img/cross.png');
+  background-position: center center;
   background-repeat: no-repeat;
   background-size: 23px 23px;
   border: 0;
-  height: 23px;
+  height: 43px;
   padding: 0;
   position: fixed;
-  right: 2rem;
+  right: 1rem;
   text-indent: -9999px;
-  top: 2rem;
-  width: 23px;
+  top: 1rem;
+  width: 43px;
   z-index: 1;
 }
 
@@ -532,15 +533,24 @@ button.close {
     .subtitle {
       margin-top: 0;
       margin-bottom: $size-s;
-
-      @media (min-width:720px) {
-        max-width: 60%;
-      }
     }
 
     .links {
       margin-bottom: 0;
       margin-top: $size-s;
+    }
+
+    @media (min-width: 420px) {
+      .links li {
+        display: inline-block;
+        margin-right: 1rem;
+      }
+    }
+
+    @media (min-width:720px) {
+      .links, .subtitle {
+        max-width: 60%;
+      }
     }
   }
 
@@ -674,6 +684,13 @@ button.close {
         right: 0;
         top: 0;
       }
+
+      ::selection {
+        background: transparent; /* WebKit/Blink Browsers */
+      }
+      ::-moz-selection {
+        background: transparent; /* Gecko Browsers */
+      }
     }
 
     &.iphone { @include slideshow-frame-img(20.5% 7% 33.7% 6%, #{1.5%}/#{1%}, "./img/frame-iphone-borderless.svg"); }
@@ -701,7 +718,7 @@ button.close {
   right: 0;
   bottom: 0;
   opacity: 1;
-  z-index: 1;
+  z-index: 2;
 }
 
 // Animations

@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react'
+import { browserHistory } from 'react-router'
 
 type Props = {
   children: any
@@ -48,6 +49,7 @@ export default class Modal extends Component {
   render () {
     return (
       <div className={"modal " + (!this.state.showBg ? "hidden " : "") + (this.state.animating ? "animating" : "")}>
+        <button className="close" onClick={() => browserHistory.goBack()}>Back</button>
         <div className={"inner " + (!this.state.showContent ? "hidden" : "")}>
           {this.state.renderContent ? this.props.children : null}
         </div>

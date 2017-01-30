@@ -1,6 +1,5 @@
 // @flow
 import React, { Component } from 'react'
-import { browserHistory } from 'react-router'
 import { ViewPager, Frame, Track, View } from 'react-view-pager'
 import { getScreenClassName } from '../helpers'
 import type { Data } from '../wrappers/json'
@@ -15,8 +14,6 @@ export default class Page extends Component {
     const { data } = this.props;
     return (
       <div className="page content">
-        <button className="close" onClick={() => browserHistory.goBack()}>Back</button>
-
         <div className="container">
           <header className="content-title">
             <h1>{data.title}</h1>
