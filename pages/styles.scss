@@ -14,6 +14,7 @@ $light: 300;
 $normal: 500;
 $bold: 700;
 
+$size-xl: 3.1rem;
 $size-l: 2.5rem;
 $size-m: 1.6rem;
 $size-s: 1rem;
@@ -113,6 +114,12 @@ h3 {
   color: $black;
   display: block;
   font-weight: $bold;
+}
+
+.lead-text {
+  font-size: $size-l;
+  line-height: 2.7rem;
+  font-weight: $light;
 }
 
 ul {
@@ -389,9 +396,8 @@ button.close {
         width: 0.7rem;
       }
       span {
-        font-size: $size-l;
+        @extend .lead-text;
         line-height: 2.1rem;
-        font-weight: $light;
       }
     }
   }
@@ -492,13 +498,13 @@ button.close {
   }
 }
 
-/* project page */
-.page-project {
+/* content page */
+.page.content {
   background-color: $brown;
 
   h3 {
     color: $black;
-    margin-top: 3.1rem;
+    margin-top: $size-xl;
     text-transform: uppercase;
   }
 
@@ -514,7 +520,7 @@ button.close {
     }
   }
 
-  .project-title {
+  .content-title {
     h1 {
       @extend .title;
       font-size: 4.1rem;
@@ -538,20 +544,37 @@ button.close {
     }
   }
 
-  .project-details {
-    ul {
-      margin-bottom: 3.1rem;
+  .content-details {
+    ul, .copy {
+      margin-bottom: $size-xl;
     }
+
+    .copy p:first-child {
+      @extend .lead-text;
+    }
+
   }
 
   @media (min-width:720px) {
-    .project-details {
+    .content-details {
       .column {
         float: left;
         width: 29%;
 
         & + .column {
           padding-left: 5.5%;
+        }
+      }
+
+      .copy {
+        -moz-column-count: 2;
+        -moz-column-gap: 5rem;
+        -webkit-column-count: 2;
+        -webkit-column-gap: 5rem;
+
+        p, ul {
+          display: inline-block;
+          margin-bottom: 0;
         }
       }
 

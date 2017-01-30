@@ -14,7 +14,7 @@ export default class Page extends Component {
   render () {
     const { data } = this.props;
     return (
-      <div className="page page-project">
+      <div className="page content">
         <button className="close" onClick={() => browserHistory.goBack()}>Back</button>
 
         <div className="container">

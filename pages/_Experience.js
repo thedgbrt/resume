@@ -8,13 +8,19 @@ export default class Experience extends Component {
     data: Data
   }
 
+  renderHtml = (str: string) => {
+    return {
+      __html: str
+    }
+  }
+
   render () {
     const { data } = this.props;
     return (
       <Page {...this.props}>
         {data.content && typeof data.content === "string" && (
-          <section key={1} className="column">
-            {data.content}
+          <section key={1} className="copy">
+            <div dangerouslySetInnerHTML={this.renderHtml(data.content)} />
           </section>
         )}
       </Page>
