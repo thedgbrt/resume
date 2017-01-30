@@ -30,6 +30,8 @@ export default class Index extends Component {
   };
 
   componentWillLeave(callback: () => void) {
+    // fix safari bug that doesn't fire modal animation when on top of page
+    (window.scrollY === 0) && (window.scrollTo(0, 1));
     // sets class to maintain scroll position during transition to other page
     this.setState({animating: true});
     setTimeout(callback, 500);
