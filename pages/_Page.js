@@ -2,6 +2,8 @@
 import React, { Component } from 'react'
 import { ViewPager, Frame, Track, View } from 'react-view-pager'
 import { getScreenClassName } from '../helpers'
+// $FlowFixMe
+import { prefixLink } from 'gatsby-helpers'
 import type { Data } from '../wrappers/json'
 
 export default class Page extends Component {
@@ -42,8 +44,8 @@ export default class Page extends Component {
                   <figure className={getScreenClassName(img.screen)}>
                     <div className="frame">
                       <img
-                        src={"/" + data.type + "s/img/" + img.file + ".jpg"}
-                        srcSet={"/" + data.type + "s/img/" + img.file + "@2x.jpg 2x"} />
+                        src={prefixLink("/" + data.type + "s/img/" + img.file + ".jpg")}
+                        srcSet={prefixLink("/" + data.type + "s/img/" + img.file + "@2x.jpg 2x")} />
                     </div>
                     <figcaption><p>{img.title}</p></figcaption>
                   </figure>

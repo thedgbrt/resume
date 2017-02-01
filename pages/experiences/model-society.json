@@ -1,5 +1,5 @@
 {
-  "content": "<p>In 2011, my friend David Bollt wanted to create the social network he, as an artist, had always dreamed of.</p><p>Inspired by his vision, I jumped in full-time from the beginning of the project, as lead designer.</p><p>From the simplest sketches to details on UI buttons, I gave everything I had to create the most beautiful and easy to use website we could dream of.</p><p>Development was handed to a remote team in Canada, and I played an instrumental part in providing them with detailed specs and direction for the duration of development.</p><p>Since my part ended, the website has grown to thousands of members (artists) and tens of thousands of active users.</p>",
+  "content": "<p>In 2011, my friend David Bollt wanted to create the social network he, as an artist, had always dreamed of. Inspired by his vision, I jumped in full-time as lead designer.</p><p>From initial wireframes to final UI mockups, as well as designing the logo and visual identity, I set out to create the most beautiful interface we could envision.</p><p>Development was handed to a remote team in Canada, and I played an instrumental part in providing them with detailed specs and directions up to launch.</p><p>Since my part ended, the website has grown to thousands of members (artists) and tens of thousands of active users.</p>",
   "images": [
     {
       "file":"modelsociety-1",
@@ -52,7 +52,6 @@
   ],
   "seoTitle": "Model Society website design story",
   "seoDescription": "My role of design lead at Model Society.",
-  "subTitle": "2011-2012, product design, ux/ui design, strategy",
   "title": "Model Society",
   "type": "experience"
 }

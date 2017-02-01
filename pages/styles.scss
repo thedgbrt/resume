@@ -152,6 +152,7 @@ button.close {
   background-repeat: no-repeat;
   background-size: 23px 23px;
   border: 0;
+  cursor: pointer;
   height: 43px;
   padding: 0;
   position: fixed;
@@ -160,6 +161,10 @@ button.close {
   top: 1rem;
   width: 43px;
   z-index: 1;
+
+  &:focus{
+    outline: 0;
+  }
 }
 
 /* pages */
@@ -585,6 +590,10 @@ button.close {
         p, ul {
           display: inline-block;
           margin-bottom: 0;
+        }
+
+        p:first-child {
+          margin-top: $size-m;
         }
       }
 
