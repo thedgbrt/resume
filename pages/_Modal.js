@@ -1,6 +1,8 @@
 // @flow
 import React, { Component } from 'react'
 import { browserHistory } from 'react-router'
+// $FlowFixMe
+import { prefixLink } from 'gatsby-helpers'
 
 type Props = {
   children: any
@@ -18,9 +20,9 @@ export default class Modal extends Component {
     super(props);
     this.state = {
       animating: false,
-      showBg: false,
-      showContent: false,
-      renderContent: false
+      showBg: true,
+      showContent: true,
+      renderContent: true
     }
   }
 
@@ -49,7 +51,7 @@ export default class Modal extends Component {
   render () {
     return (
       <div className={"modal " + (!this.state.showBg ? "hidden " : "") + (this.state.animating ? "animating" : "")}>
-        <button className="close" onClick={() => browserHistory.goBack()}>Back</button>
+        <button className="close" onClick={() => browserHistory.push(prefixLink("/"))}>Back</button>
         <div className={"inner " + (!this.state.showContent ? "hidden" : "")}>
           {this.state.renderContent ? this.props.children : null}
         </div>

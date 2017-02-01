@@ -45,7 +45,7 @@ export default class Index extends Component {
       >
         <Helmet
           title={config.siteTitle}
-          meta={[ {"name": "description", "content": "Sample"} ]}
+          meta={[ {"name": "description", "content": "Front-end engineer and start-up catalyst."} ]}
         />
 
         <header className="identity">
