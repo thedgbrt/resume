@@ -49,7 +49,9 @@ export default class Index extends Component {
         />
 
         <header className="identity">
-          <img className="avatar" height="175px" width="174px" src="img/avatar.jpg"/>
+          <img className="avatar" height="172px" width="172px"
+            src={prefixLink("/img/avatar.jpg")}
+            srcSet={prefixLink("/img/avatar@2x.jpg 2x")} />
           <h1>
             Dagobert Renouf, 27<br/>
             <strong>Front-end Engineer</strong>
@@ -101,7 +103,7 @@ export default class Index extends Component {
 
           <ul className="timeline">
             <li><span>In 2006</span>, in high school, I <Link to={prefixLink('/experiences/christophe-nouvelle-star/')}>created my first website that made money</Link></li>
-            <li><span>In 2008</span>, I dropped out of college and <Link to={prefixLink('/experiences/french-dezign/')}>moved to Moscow to grow an e-commerce website</Link></li>
+            <li><span>In 2008</span>, I <Link to={prefixLink('/experiences/french-dezign/')}>moved to Moscow to grow an e-commerce website</Link></li>
             <li><span>In 2011 and 2012</span>, I <Link to={prefixLink('/experiences/model-society/')}>led design at ModelSociety</Link></li>
             <li><span>Since 2013</span>, I've <Link to={prefixLink('/experiences/dgbrt/')}>run my own consulting business</Link> that helped companies with <strong>development, strategy and product design</strong></li>
           </ul>
