@@ -146,13 +146,18 @@ export default class Index extends Component {
 
         <footer className="contact">
           <p>
-            Contact me<br/>
-            <a href="mailto:dagobert@dgbrt.fr">dagobert@dgbrt.fr</a><br/>
-            Find me<br/>
-            <a href="https://www.linkedin.com/in/dgbrt">linkedIn</a>, <a href="https://twitter.com/thedgbrt">twitter</a> or <a href="https://github.com/thedgbrt">github</a>
+            Contact me
+            <br />
+            <a href="mailto:dagobert@dgbrt.fr">dagobert@dgbrt.fr</a>
+            <br />
+            Find me
+            <br />
+            <a href="https://www.linkedin.com/in/dgbrt">linkedIn</a>,{" "}
+            <a href="https://twitter.com/dagorenouf">twitter</a> or{" "}
+            <a href="https://github.com/thedgbrt">github</a>
           </p>
         </footer>
       </div>
-    )
+    );
   }
 }
