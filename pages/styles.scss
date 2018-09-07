@@ -799,24 +799,3 @@ button.close {
     }
   }
 }
-
-/* projects react icon rotate */
-.projects ul {
-  .icon {
-    .react-logo {
-      animation: rotate 7s infinite;
-      animation-timing-function: linear;
-      fill: red;
-      transform-origin: center center;
-    }
-  }
-
-  @keyframes rotate {
-    0% {
-      transform: rotate(0);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-}
